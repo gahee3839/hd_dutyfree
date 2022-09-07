@@ -2,7 +2,7 @@ package com.dutyfree.dto;
 
 import java.sql.Timestamp;
 
-public class MemberVO {
+public class MemberVO{
 	private String memId;
 	private String memPw;
 	private String memName;
