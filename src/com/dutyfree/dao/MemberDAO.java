@@ -22,7 +22,7 @@ public class MemberDAO {
 		return instance;
 	}
 	
-	//멤버 추가
+	//멤버 추가 메서드
 	public int  insertMember(MemberVO member) {
 		try {
 		sql="{exec  패키지명.프로시져}";
