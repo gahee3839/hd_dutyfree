@@ -1,3 +1,4 @@
+// 22/09/07 김가희 생성
 package com.dutyfree.dto;
 
 import java.sql.Timestamp;

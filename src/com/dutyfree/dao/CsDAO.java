@@ -1,3 +1,4 @@
+// 22/09/10 김가희 생성
 package com.dutyfree.dao;
 
 import java.sql.CallableStatement;
@@ -11,10 +12,10 @@ import com.dutyfree.util.DBConnection;
 import oracle.jdbc.OracleTypes;
 
 public class CsDAO {
-	Connection conn =  DBConnection.getConnection();
-	CallableStatement cstmt =null;
+	Connection conn = DBConnection.getConnection();
+	CallableStatement cstmt = null;
 	ResultSet rs = null;
-	
+
 	public CsDAO() {
 		// TODO Auto-generated constructor stub
 	}
@@ -29,7 +30,7 @@ public class CsDAO {
 	public ArrayList<CsVO> listCs() {
 		ArrayList<CsVO> csList = new ArrayList<>();
 		String sql = "{call selectAllCs(?)}";
-		
+		/* Connection conn = null; CallableStatement cstmt = null; */
 		ResultSet rs = null;
 		try {
 			conn = DBConnection.getConnection();
@@ -47,7 +48,7 @@ public class CsDAO {
 				vo.setCsTitle(rs.getString("cs_title"));
 				vo.setCsDate(rs.getTimestamp("cs_date"));
 				vo.setCsCheck(rs.getString("cs_check"));
-				vo.setMemNo(rs.getInt("mem_no"));
+				vo.setMemNo(rs.getInt("member_mem_no"));
 				csList.add(vo);
 				System.out.println(vo);
 			}
@@ -62,7 +63,7 @@ public class CsDAO {
 	public void myCs(int memNo) {
 		ArrayList<CsVO> csList = new ArrayList<>();
 		String sql = "{call selectMyCs(?,?)}";
-		
+
 		try {
 			conn = DBConnection.getConnection();
 			cstmt = conn.prepareCall(sql);
@@ -92,10 +93,15 @@ public class CsDAO {
 	}
 
 	// 게시글내용 조회
-	public void getCs(int cs_no) {
+	public CsVO getCs(int cs_no) {
 		CsVO vo = null;
 		String sql = "{call selectCs(?,?)}";
-		
+
+		// test용
+		/*
+		 * Connection conn = null; CallableStatement cstmt = null; ResultSet rs = null;
+		 */
+
 		try {
 			conn = DBConnection.getConnection();
 			cstmt = conn.prepareCall(sql);
@@ -111,13 +117,13 @@ public class CsDAO {
 				vo.setCsDate(rs.getTimestamp("cs_date"));
 				vo.setCsReply(rs.getString("cs_reply"));
 				vo.setCsCheck(rs.getString("cs_check"));
-				vo.setMemNo(rs.getInt("mem_no"));
+				vo.setMemNo(rs.getInt("member_mem_no"));
 				System.out.println(vo);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		// return vo;
+		 return vo;
 	}
 
 	// 게시글 insert
@@ -137,5 +143,9 @@ public class CsDAO {
 		}
 		System.out.println("insert 완료");
 	}
+
+	/*
+	 * public static void main(String[] args) { listCs(); }
+	 */
 
 }
