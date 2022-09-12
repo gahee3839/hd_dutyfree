@@ -7,13 +7,22 @@ public class MemberVO{
 	private String memPw;
 	private String memName;
 	private Timestamp memBirth;
+	private Timestamp memRegDate;
 	private String memPassport;
 	private String memPhone;
+	
 	public String getMemId() {
 		return memId;
 	}
+	
 	public void setMemId(String memId) {
 		this.memId = memId;
+	}
+	public Timestamp getMemRegDate() {
+		return memRegDate;
+	}
+	public void setMemRegDate(Timestamp memRegDate) {
+		this.memRegDate = memRegDate;
 	}
 	public String getMemPw() {
 		return memPw;
@@ -46,5 +55,11 @@ public class MemberVO{
 		this.memPhone = memPhone;
 	}
 	
+	/*
+	 * @Override public String toString() { return "MemberVO [memId=" + memId +
+	 * ", memPw=" + memPw + ", memName=" + memName + ", memBirth=" + memBirth +
+	 * ", memRegDate=" + memRegDate + ", memPassport=" + memPassport + ", memPhone="
+	 * + memPhone + "]"; }
+	 */
 	
 }
