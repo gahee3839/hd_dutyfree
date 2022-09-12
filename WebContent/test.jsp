@@ -8,6 +8,7 @@
 </head>
 <body>
 	<li><a href="DutyfreeServlet?command=cs_list">고객센터(1:1)</a></li>
-
+	<br><br>
+	<li><a href="DutyfreeServlet?command=admin_main">관리자</a></li>
 </body>
 </html>
