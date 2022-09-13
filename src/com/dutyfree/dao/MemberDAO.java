@@ -16,6 +16,7 @@ public class MemberDAO {
 	CallableStatement cstmt = null;
 	String sql;
 	int result = 0;
+	ResultSet rs=null;
 
 	private MemberDAO() {
 
@@ -35,7 +36,7 @@ public class MemberDAO {
 			cstmt.setString(1, member.getMemId());
 			cstmt.setString(2, member.getMemPw());
 			cstmt.setString(3, member.getMemName());
-			cstmt.setTimestamp(4, member.getMemBirth());
+			cstmt.setDate(4, member.getMemBirth());
 			cstmt.setString(5, member.getMemPassport());
 			cstmt.setString(6, member.getMemPhone());
 			result = cstmt.executeUpdate();
@@ -52,14 +53,15 @@ public class MemberDAO {
 	// 멤버 수정
 	public int updateMember(MemberVO member) {
 		try {
-			sql = "{exec  패키지명.프로시져}";
+			sql = "{call update_member(?,?,?,?,?,?,?)}";
 			cstmt = conn.prepareCall(sql);
 			cstmt.setString(1, member.getMemId());
 			cstmt.setString(2, member.getMemPw());
 			cstmt.setString(3, member.getMemName());
-			cstmt.setTimestamp(4, member.getMemBirth());
+			cstmt.setDate(4, member.getMemBirth());
 			cstmt.setString(5, member.getMemPassport());
 			cstmt.setString(6, member.getMemPhone());
+			cstmt.setString(7, member.getMemGender());
 			result = cstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -124,6 +126,67 @@ public class MemberDAO {
 
 		return memList;
 	}
+	//사용자에 대한 정보 불러오기
+		public MemberVO getMember(String memId) {
+			MemberVO member=null;
+			try {			
+				conn=DBConnection.getConnection();
+				sql="{call getMember(?,?) }";
+				cstmt=conn.prepareCall(sql);
+				cstmt.setString(1, memId);
+				/*
+				 * cstmt.registerOutParameter(2, oracle.jdbc.OracleTypes.VARCHAR);
+				 * cstmt.registerOutParameter(3, oracle.jdbc.OracleTypes.VARCHAR);
+				 * cstmt.registerOutParameter(5, oracle.jdbc.OracleTypes.DATE);
+				 * cstmt.registerOutParameter(4, oracle.jdbc.OracleTypes.VARCHAR);
+				 * cstmt.registerOutParameter(6, oracle.jdbc.OracleTypes.VARCHAR);
+				 */
+				cstmt.registerOutParameter(2, OracleTypes.CURSOR);
+				cstmt.executeUpdate();
+				rs=(ResultSet)cstmt.getObject(2);
+				if(rs.next()) {
+					member=new MemberVO();
+					member.setMemId(memId);
+					member.setMemPw(rs.getString("mem_pw"));		
+					member.setMemName(rs.getString("mem_name"));
+					member.setMemBirth(rs.getDate("mem_birth"));
+					member.setMemPassport(rs.getString("mem_passport"));
+					member.setMemPhone(rs.getString("mem_phone"));
+					member.setMemGender(rs.getString("mem_gender"));
+				}
+			}catch(Exception e) {
+				e.printStackTrace();
+			}finally {
+				JDBCUtil.close(cstmt);
+				JDBCUtil.close(conn);
+			}
+			return member;
+			
+			
+		}
+	
+	
+	//로그인 페이지 구현
+		public String LoginMember(String memId,String memPw) {
+			String result="";
+			try {
+				conn=DBConnection.getConnection();
+				sql= "{? = call LoginMember(?,?)}";
+				cstmt=conn.prepareCall(sql);
+				cstmt.registerOutParameter(1, OracleTypes.VARCHAR);
+				cstmt.setString(2, memId);
+				cstmt.setString(3,memPw);
+				cstmt.executeUpdate();
+				result=cstmt.getString(1);
+				System.out.println(result);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}finally {
+				JDBCUtil.close(cstmt);
+				JDBCUtil.close(conn);
+			}
+			return result;
+		}
 	
 	/*
 	 * public static void main(String[] args) { listMember(); }
