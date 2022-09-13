@@ -14,6 +14,8 @@ public class ActionFactory {
 	public Action getAction(String command) {
 		Action action = null;
 		System.out.println("ActionFactory : "+command);
+		
+
 		return action;
 	}
 	

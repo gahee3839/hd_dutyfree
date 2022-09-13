@@ -1,17 +1,21 @@
 package com.dutyfree.dao;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-import util.DBManager;
-
 import com.dutyfree.dto.CartVO;
 import com.dutyfree.dto.OrderVO;
+import com.dutyfree.util.DBConnection;
+
+import oracle.jdbc.OracleTypes;
 
 public class OrderDAO {
-
+	Connection conn = null;
+	CallableStatement cstmt = null;
+	ResultSet rs = null;
 	private OrderDAO() {
 	}
 
@@ -30,7 +34,7 @@ public class OrderDAO {
 		ResultSet rs;
 
 		try {
-			conn = DBManager.getConnection();
+			conn = DBConnection.getConnection();
 
 			String selectMaxOseq = "select max(oseq) from orders";
 			pstmt = conn.prepareStatement(selectMaxOseq);
@@ -62,7 +66,7 @@ public class OrderDAO {
 		PreparedStatement pstmt = null;
 
 		try {
-			conn = DBManager.getConnection();
+			conn = DBConnection.getConnection();
 
 			String insertOrderDetail = "insert into order_detail(odseq, oseq, "
 					+ "pseq, quantity) values(order_detail_seq.nextval, ?, ?, ?)";
@@ -80,7 +84,7 @@ public class OrderDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			DBManager.close(conn, pstmt);
+			DBConnection.close(conn, pstmt);
 		}
 	}
 
@@ -93,7 +97,7 @@ public class OrderDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
-			conn = DBManager.getConnection();
+			conn = DBConnection.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);
 			pstmt.setString(2, result);
@@ -152,64 +156,49 @@ public class OrderDAO {
 	/* *
 	 * 관리자 모드에서 사용되는 메소드 * *
 	 */
-	public ArrayList<OrderVO> listOrder(String member_name) {
+	// 22/09/12 김가희 추가
+	public ArrayList<OrderVO> listOrder() {
 		ArrayList<OrderVO> orderList = new ArrayList<OrderVO>();
-		String sql = "select * from order_view where mname like '%'||?||'%' " +
-				"order by result, oseq desc";
-
-		Connection conn = null;
-		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-
+		String sql = "{call orderList(?)}";
 		try {
-			conn = DBManager.getConnection();
-			pstmt = conn.prepareStatement(sql);
-			if (member_name == "") {
-				pstmt.setString(1, "%");
-			} else {
-				pstmt.setString(1, member_name);
-			}
-			rs = pstmt.executeQuery();
+			conn = DBConnection.getConnection();
+			cstmt = conn.prepareCall(sql);
+			cstmt.registerOutParameter(1, OracleTypes.CURSOR);
+			//프로시저 실행
+			cstmt.executeUpdate();
+			//out파라미터의 값을 돌려받는다.
+			rs = (ResultSet)cstmt.getObject(1);
 			while (rs.next()) {
-				OrderVO orderVO = new OrderVO();
-				orderVO.setOdseq(rs.getInt("ODSEQ"));
-				orderVO.setOseq(rs.getInt("OSEQ"));
-				orderVO.setId(rs.getString("ID"));
-				orderVO.setPseq(rs.getInt("PSEQ"));
-				orderVO.setMname(rs.getString("MNAME"));
-				orderVO.setPname(rs.getString("PNAME"));
-				orderVO.setQuantity(rs.getInt("QUANTITY"));
-				orderVO.setZipNum(rs.getString("ZIP_NUM"));
-				orderVO.setAddress(rs.getString("ADDRESS"));
-				orderVO.setPhone(rs.getString("PHONE"));
-				orderVO.setIndate(rs.getTimestamp("INDATE"));
-				orderVO.setPrice2(rs.getInt("PRICE2"));
-				orderVO.setResult(rs.getString("RESULT"));
-				orderList.add(orderVO);
+				OrderVO vo = new OrderVO();
+				vo.setoNo(rs.getInt("o_no"));
+				vo.setOdNo(rs.getInt("od_no"));
+				vo.setpNo(rs.getInt("p_no"));
+				vo.setpName(rs.getString("p_name"));
+				vo.setOdAmount(rs.getInt("od_amount"));
+				vo.setpPrice(rs.getInt("p_price"));
+				vo.setpDiscount(rs.getInt("p_dc"));
+				vo.setoShipping(rs.getString("o_shipping"));
+				vo.setoDate(rs.getTimestamp("o_date"));
+				vo.setmNo(rs.getInt("m_no"));
+				vo.setmId(rs.getString("m_id"));
+				orderList.add(vo);
+				System.out.println(vo);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-		} finally {
-			DBManager.close(conn, pstmt, rs);
 		}
 		return orderList;
 	}
 
-	public void updateOrderResult(String oseq) {
-		String sql = "update order_detail set result='2' where odseq=?";
-
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-
-		try {
-			conn = DBManager.getConnection();
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, oseq);
-			pstmt.executeUpdate();
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			DBManager.close(conn, pstmt);
-		}
-	}
+	/*
+	 * public void updateOrderResult(String oseq) { String sql =
+	 * "update order_detail set result='2' where odseq=?";
+	 * 
+	 * Connection conn = null; PreparedStatement pstmt = null;
+	 * 
+	 * try { conn = DBManager.getConnection(); pstmt = conn.prepareStatement(sql);
+	 * pstmt.setString(1, oseq); pstmt.executeUpdate(); } catch (Exception e) {
+	 * e.printStackTrace(); } finally { DBManager.close(conn, pstmt); } }
+	 */
 }

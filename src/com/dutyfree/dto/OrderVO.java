@@ -1,107 +1,114 @@
+
 package com.dutyfree.dto;
 
 import java.sql.Timestamp;
 
 public class OrderVO {
-  private int ordersNo;
-  private String orderPay;
-  private String id; 
-  private Timestamp indate; 
-  private String mname;
-  private String zipNum;
-  private String address;
-  private String phone;  
-  private int pseq;
-  private String pname;
-  private int quantity;
-  private int price2;  
-  private String result;    
-  
-  public int getOdseq() {
-    return odseq;
-  }
-  public void setOdseq(int odseq) {
-    this.odseq = odseq;
-  }
-  public int getPrice2() {
-    return price2;
-  }
-  public void setPrice2(int price2) {
-    this.price2 = price2;
-  }
-  public int getOseq() {
-    return oseq;
-  }
-  public void setOseq(int oseq) {
-    this.oseq = oseq;
-  }
-  public String getId() {
-    return id;
-  }
-  public void setId(String id) {
-    this.id = id;
-  }
-  public int getPseq() {
-    return pseq;
-  }
-  public void setPseq(int pseq) {
-    this.pseq = pseq;
-  }
-  public String getMname() {
-    return mname;
-  }
-  public void setMname(String mname) {
-    this.mname = mname;
-  }
-  public String getPname() {
-    return pname;
-  }
-  public void setPname(String pname) {
-    this.pname = pname;
-  }
-  public int getQuantity() {
-    return quantity;
-  }
-  public void setQuantity(int quantity) {
-    this.quantity = quantity;
-  }
-  public String getResult() {
-    return result;
-  }
-  public void setResult(String result) {
-    this.result = result;
-  }
-  public String getZipNum() {
-    return zipNum;
-  }
-  public void setZipNum(String zipNum) {
-    this.zipNum = zipNum;
-  }
-  public String getAddress() {
-    return address;
-  }
-  public void setAddress(String address) {
-    this.address = address;
-  }
-  public String getPhone() {
-    return phone;
-  }
-  public void setPhone(String phone) {
-    this.phone = phone;
-  }
-  public Timestamp getIndate() {
-    return indate;
-  }
-  public void setIndate(Timestamp indate) {
-    this.indate = indate;
-  }
-@Override
-public String toString() {
-	return "OrderVO [odseq=" + odseq + ", oseq=" + oseq + ", id=" + id
-			+ ", indate=" + indate + ", mname=" + mname + ", zipNum=" + zipNum
-			+ ", address=" + address + ", phone=" + phone + ", pseq=" + pseq
-			+ ", pname=" + pname + ", quantity=" + quantity + ", price2="
-			+ price2 + ", result=" + result + "]";
-}  
-  
+	private int oNo;
+	private int odNo;
+	private int mNo;
+	private String mId;
+	private int pNo;
+	private String pName;
+	private int pPrice;
+	private int pDiscount;
+	private int odAmount;
+	private Timestamp oDate;
+	private String oShipping;
+
+	public int getoNo() {
+		return oNo;
+	}
+
+	public void setoNo(int oNo) {
+		this.oNo = oNo;
+	}
+
+	public int getOdNo() {
+		return odNo;
+	}
+
+	public void setOdNo(int odNo) {
+		this.odNo = odNo;
+	}
+
+	public int getmNo() {
+		return mNo;
+	}
+
+	public void setmNo(int mNo) {
+		this.mNo = mNo;
+	}
+
+	public String getmId() {
+		return mId;
+	}
+
+	public void setmId(String mId) {
+		this.mId = mId;
+	}
+
+	public int getpNo() {
+		return pNo;
+	}
+
+	public void setpNo(int pNo) {
+		this.pNo = pNo;
+	}
+
+	public String getpName() {
+		return pName;
+	}
+
+	public void setpName(String pName) {
+		this.pName = pName;
+	}
+
+	public int getpPrice() {
+		return pPrice;
+	}
+
+	public void setpPrice(int pPrice) {
+		this.pPrice = pPrice;
+	}
+
+	public int getpDiscount() {
+		return pDiscount;
+	}
+
+	public void setpDiscount(int pDiscount) {
+		this.pDiscount = pDiscount;
+	}
+
+	public int getOdAmount() {
+		return odAmount;
+	}
+
+	public void setOdAmount(int odAmount) {
+		this.odAmount = odAmount;
+	}
+
+	public Timestamp getoDate() {
+		return oDate;
+	}
+
+	public void setoDate(Timestamp oDate) {
+		this.oDate = oDate;
+	}
+
+	public String getoShipping() {
+		return oShipping;
+	}
+
+	public void setoShipping(String oShipping) {
+		this.oShipping = oShipping;
+	}
+
+	@Override
+	public String toString() {
+		return "OrderVO [oNo=" + oNo + ", odNo=" + odNo + ", mNo=" + mNo + ", pNo=" + pNo + ", pName=" + pName
+				+ ", pPrice=" + pPrice + ", pDiscount=" + pDiscount + ", odAmount=" + odAmount + ", oDate=" + oDate
+				+ ", oShipping=" + oShipping + "]";
+	}
+
 }
