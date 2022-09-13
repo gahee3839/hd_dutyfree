@@ -1,5 +1,19 @@
+<%@page import="com.dutyfree.dto.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<!-- 진수 수정 -->
+<%
+MemberVO member=(MemberVO)session.getAttribute("member");
+Cookie[] cookies=request.getCookies();
+String memId="";
+if(cookies!=null){
+	for(Cookie c: cookies){
+		if(c.getName().equals("saveId")){
+			 memId=c.getValue();
+		}
+	}
+}
+%>
 <!DOCTYPE html>
 <html lang="ko">
 <head> 
@@ -26,6 +40,16 @@
 <link rel="shortcut icon" href="https://cdn.hddfs.com/front/images/KO/common/favicon_H.ico">
 </head>
 <body>
+<%-- <% if(member!=null){%>
+<script type="text/javascript">
+
+
+window.opener.location.href="Dutyfree?command=index";   //부모창 reload
+
+window.close();    //현재 팝업창 Close 
+
+</script>
+<%} %> --%>
 <script type="text/javascript">
 document.msCapsLockWarningOff = true; // ie caps lock 체크 툴팁해제
 var ctx_curr                = "//www.hddfs.com/shop";
@@ -73,7 +97,7 @@ $(function(){
     	gAucaType = $(this).attr('id');
     });
 
-    // 통합 아이디, 비밀번호 caps lock 체크
+    /* // 통합 아이디, 비밀번호 caps lock 체크
     $('#custId, #custPwd', '#frmIntgLgin').keypress(function(e) {
         var s = String.fromCharCode( e.which );
         if ( s.toUpperCase() === s && s.toLowerCase() !== s && !e.shiftKey ) {
@@ -81,20 +105,20 @@ $(function(){
         } else {
             $('#pError', '#frmIntgLgin').hide();
         }
-    });
+    }); */
 
     // 일반 아이디, 비밀번호 caps lock 체크
-    $('#mbshId, #mbshPwd', '#frmGeneLgin').keypress(function(e) {
+    $('#memId, #memPwd', '#memLgin').keypress(function(e) {
         var s = String.fromCharCode( e.which );
         if ( s.toUpperCase() === s && s.toLowerCase() !== s && !e.shiftKey ) {
-        	$('#pError', '#frmGeneLgin').show().text("<Caps Lock>이 켜져 있습니다.");
+        	$('#pError', '#memLgin').show().text("<Caps Lock>이 켜져 있습니다.");
         } else {
-        	$('#pError', '#frmGeneLgin').hide();
+        	$('#pError', '#memLgin').hide();
         }
     });
 
     // 통합 로그인버튼
-    $('#btnLgin1', '#frmIntgLgin').click(function() {
+/*     $('#btnLgin1', '#frmIntgLgin').click(function() {
     	// trim 처리
     	$('#custId', '#frmIntgLgin').val($.trim($('#custId', '#frmIntgLgin').val()));
     	$('#custPwd', '#frmIntgLgin').val($.trim($('#custPwd', '#frmIntgLgin').val()))
@@ -127,39 +151,39 @@ $(function(){
                 alert('처리중 오류가 발생하였습니다.');
             }
         });
-    });
+    }); */
     
     if(umbKkoSyncYn != null && umbKkoSyncYn == 'Y'){
         var kData = JSON.parse('');
         $('#umbMbshNo', '#frmIntgLgin').val(kData.mcustNo);
         lginUmbMbsh(kData);
     }
-    
 
+    //진수 수정
     // 일반 로그인버튼
-    $('#btnLgin2', '#frmGeneLgin').click(function() {
+    $('#btnLgin', '#memLgin').click(function() {
     	// trim 처리
-    	$('#mbshId', '#frmGeneLgin').val($.trim($('#mbshId', '#frmGeneLgin').val()));
-    	$('#mbshPwd', '#frmGeneLgin').val($.trim($('#mbshPwd', '#frmGeneLgin').val()));
+    	$('#memId', '#memLgin').val($.trim($('#memId', '#memLgin').val()));
+    	$('#memPw', '#memLgin').val($.trim($('#memPw', '#memLgin').val()));
 
 
-    	if($('#mbshId', '#frmGeneLgin').val() == '') {
-            $('#pError', '#frmGeneLgin').show().text('아이디를 입력해주세요.');
-            $('#mbshId', '#frmGeneLgin').focus();
+    	if($('#memId', '#memLgin').val() == '') {
+            $('#pError', '#memLgin').show().text('아이디를 입력해주세요.');
+            $('#memId', '#memLgin').focus();
             return ;
         }
 
-    	if($('#mbshPwd', '#frmGeneLgin').val() == '') {
-            $('#pError', '#frmGeneLgin').show().text('비밀번호를 입력해주세요.');
-            $('#mbshPwd', '#frmGeneLgin').focus();
+    	if($('#memPw', '#memLgin').val() == '') {
+            $('#pError', '#memLgin').show().text('비밀번호를 입력해주세요.');
+            $('#memPw', '#memLgin').focus();
             return ;
         }
-    	$('#pError', '#frmGeneLgin').hide();
-
-    	fnLogin('GENE', $('#frmGeneLgin').serialize());
+    	$('#pError', '#memLgin').hide();
+		$('#memLgin').submit();
+    	//fnLogin('GENE', $('#frmGeneLgin').serialize());
     });
 
-    // 통멤 아이디 찾기
+    /* // 통멤 아이디 찾기
     $('#aFindId', '#frmIntgLgin').click(function() {
     	popOpen(gUmbMbshUrl + '/cu/config/findCustId.nhd', 'umbFindCustIdPop', 770, 903);
     });
@@ -167,26 +191,24 @@ $(function(){
     // 통멤 비밀번호 찾기
     $('#aFindPwd', '#frmIntgLgin').click(function() {
     	popOpen(gUmbMbshUrl + '/cu/config/findCustPwd.nhd', 'umbFindCustPwdPop', 770, 903);
-    });
+    }); */
 
     // 엔터키처리
-    $('#custPwd, #mbshPwd').keydown(function(e) {
+    $('#memPw').keydown(function(e) {
         if(e.keyCode == 13) {
-        	if(gAucaType == 'INTG') {
-        		$('#btnLgin1', '#frmIntgLgin').click(); // 통멤로그인
-            } else {
-            	$('#btnLgin2', '#frmGeneLgin').click(); // 면세점로그인
-            }
+        	if(gAucaType == 'GENE') {
+        		$('#btnLgin', '#memLgin').click(); 
+            } 
         	e.preventDefault();
         }
     });
 
-    // 통멤 간편가입 팝업
+   /*  // 통멤 간편가입 팝업
     $('#btnUmbSimpleJoin', '#mem_error').click(function() {
     	// 간편가입처리(통멤페이지로 이동시 SSO처리때문에 redirect이 일어나므로 통멤페이지 두 번 호출함)
         $('#hiddenifr').attr('src', gUmbMbshUrl);
         setTimeout(function(){ fnUmbSimpJoinPop($('#ssoMcustNo', '#mem_error').val(), ''); }, 1500);
-    });
+    }); */
 
     fnInit();
 
@@ -223,7 +245,7 @@ $(function(){
 
 // opner redirect -> self.close
 function fnOpenerLocationClose(url){
-	opener.location.href = ctx_curr + url;
+	opener.location.href =  url;
     self.close();
 }
 // 초기화 함수
@@ -405,18 +427,19 @@ function fnUmbSimpJoinPop(ssoMcustNo, joinType) {
    <div class="pop_wrap"  > <h1 class="h1_type">로그인</h1>
         <div class="pop_content">
             <div class="tab_type01 two">
-                <ul id="ulAucaType">
-                    <li id="INTG"><a href="#;" class="hide_fix active" title="login01">H.Point통합회원</a></li>
-                    <li id="GENE"><a href="#;" title="login02">면세점간편회원</a></li>
-                </ul>
+                <!-- <ul id="ulAucaType"> -->
+                    <!-- <li id="INTG"><a href="#;" class="hide_fix active" title="login01">H.Point통합회원</a></li> -->
+                    <!-- <li id="GENE"><a href="#;" title="login02">면세점간편회원</a></li> -->
+                    <h1 id="GENE" style="text-align: center;">현대백화점면세점 회원로그인</h1>
+                <!-- </ul> -->
             </div>
             <!-- S : H.Point통합회원 -->
-            <div class="tab_view_box block" id="login01" >
+           <!--  <div class="tab_view_box block" id="login01" >
                 <form id="frmIntgLgin" name="frmIntgLgin" method="post" action="" autocomplete="off">
                     <input type="hidden" name="aucaType" value="INTG" />
-                    <input type="hidden" name="authType" value="INTG" /> <!-- 탭구분용 -->
+                    <input type="hidden" name="authType" value="INTG" /> 탭구분용
                     <input type="hidden" id="umbMbshNo" name="umbMbshNo" value="" />
-                    <input type="hidden" id="custPwd2" name="custPwd2" value="77LNW1" />
+                    <input type="hidden" id="custPwd2" name="custPwd2" value="C1GCB6" />
                     <input type="hidden" name="umbKkoSyncYn" value="" />
                     <div class="join_form">
                         <div class="join_row">
@@ -456,19 +479,20 @@ function fnUmbSimpJoinPop(ssoMcustNo, joinType) {
                     </form>
                 </div>
                 
-            </div>
+            </div> -->
             <!-- E : H.Point통합회원 -->
             <!-- S : 면세점간편회원 -->
-            <div class="tab_view_box" id="login02">
-                <form id="frmGeneLgin" name="frmGeneLgin" method="post" action=""  autocomplete="off">
+            <!-- <div class="tab_view_box" id="login02"> -->
+            <!-- 진수 -->
+                <form id="memLgin" name="memLgin" method="post" action="./DutyfreeServlet?command=login"  autocomplete="off">
                     <input type="hidden" name="aucaType" value="GENE" />
                     <input type="hidden" name="authType" value="GENE" /> <!-- 탭구분용 -->
                     <div class="join_form">
                         <div class="join_row">
-                            <input type="text" id="mbshId" name="mbshId" placeholder="아이디" onkeypress="javascript:noSpaceEvnt(event);" maxlength="20" autocomplete="off">
+                            <input type="text" id="memId" name="memId" <% if(memId!=null){  %> value= "<%=memId %>" <% } %> placeholder="아이디" onkeypress="javascript:noSpaceEvnt(event);" maxlength="20" autocomplete="off">
                         </div>
                         <div class="join_row placeholder_wrap">
-                            <input type="password" id="mbshPwd" name="mbshPwd" placeholder="비밀번호" onkeypress="javascript:noSpaceEvnt(event);" maxlength="100" autocomplete="off">
+                            <input type="password" id="memPw" name="memPw" placeholder="비밀번호" onkeypress="javascript:noSpaceEvnt(event);" maxlength="100" autocomplete="off">
                         </div>
                     </div>
                     <div class="dang_type">
@@ -480,20 +504,22 @@ function fnUmbSimpJoinPop(ssoMcustNo, joinType) {
                             <label for="saveId">아이디 저장</label>
                         </span>
                         <span class="find_idpw">
-                            <a href="javascript:fnOpenerLocationClose('/mm/mbshAuca/membershipFindId.do');">아이디찾기</a>
-                            <a href="javascript:fnOpenerLocationClose('/mm/mbshAuca/membershipFindPwd.do');">비밀번호찾기</a>
+                        <!-- 진수수정 -->
+                            <a href="DutyfreeServlet?command=FindId_Page">아이디찾기</a>
+                            <a href="DutyfreeServlet?command=FindPw_Page">비밀번호찾기</a>
+                        <!-- -->
                         </span>
                     </div>
-                    <div class="btn_login"><button type="button" class="btn_basic2 big" id="btnLgin2">로그인</button></div>
+                    <div class="btn_login"><button type="button" class="btn_basic2 big" id="btnLgin">로그인</button></div>
                 </form>
-                <div class="sns_type mgtsm">
+                <!-- <div class="sns_type mgtsm">
                     <h2 class="f_size04 sns_title">SNS 간편로그인 연결</h2>
                     <ul>
                         <li class="naver"><a href="javascript:snsLogin.naver.login()" class="ico_memb s_na2">네이버</a></li>
                         <li class="facebook"><a href="javascript:snsLogin.facebook.login()" class="ico_memb s_fa2">페이스북</a></li>
                         <li class="kakaotalk"><a href="javascript:snsLogin.kakao.login()" class="ico_memb s_ka2">면세점 카카오</a></li>
                     </ul>
-                </div>
+                </div> -->
                 
             </div>
             <!-- E : 면세점간편회원 -->
@@ -508,7 +534,7 @@ function fnUmbSimpJoinPop(ssoMcustNo, joinType) {
                 </ul>
             </div>
         </div>
-    </div>
+    <!-- </div> -->
 
    <!-- S : dialog -->
    <div id="pw_error" title="로그인 안내"  > <div class="layer_popup">
@@ -550,7 +576,7 @@ function fnUmbSimpJoinPop(ssoMcustNo, joinType) {
     </div>
     <!-- E : dialog -->
 <script>
-var snsKey   = "18e3297260e3403e96a4f4db7b58f556";
+var snsKey   = "e5871c121b314cd9abf764adb1abd749";
 </script>
 <script src="https://cdn.hddfs.com/front/js/KO/crew/snsLogin.js"></script>
 

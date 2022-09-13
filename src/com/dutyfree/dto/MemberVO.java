@@ -1,15 +1,17 @@
 package com.dutyfree.dto;
 
+import java.sql.Date;
 import java.sql.Timestamp;
 
 public class MemberVO{
 	private String memId;
 	private String memPw;
 	private String memName;
-	private Timestamp memBirth;
+	private Date memBirth;
 	private Timestamp memRegDate;
 	private String memPassport;
 	private String memPhone;
+	private String memGender;
 	
 	public String getMemId() {
 		return memId;
@@ -36,10 +38,10 @@ public class MemberVO{
 	public void setMemName(String memName) {
 		this.memName = memName;
 	}
-	public Timestamp getMemBirth() {
+	public Date getMemBirth() {
 		return memBirth;
 	}
-	public void setMemBirth(Timestamp memBirth) {
+	public void setMemBirth(Date memBirth) {
 		this.memBirth = memBirth;
 	}
 	public String getMemPassport() {
@@ -53,6 +55,13 @@ public class MemberVO{
 	}
 	public void setMemPhone(String memPhone) {
 		this.memPhone = memPhone;
+	}
+	
+	public String getMemGender() {
+		return memGender;
+	}
+	public void setMemGender(String memGender) {
+		this.memGender = memGender;
 	}
 	
 	/*
