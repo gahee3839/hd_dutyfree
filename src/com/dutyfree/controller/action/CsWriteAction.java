@@ -28,7 +28,7 @@ public class CsWriteAction implements Action{
 		csVO.setCsContent(request.getParameter("content"));
 		
 		CsDAO csDAO = CsDAO.getInstance();
-		csDAO.insertCs(csVO, "25");
+		csDAO.insertCs(csVO, "1");
 		
 		response.sendRedirect(url);
 		
