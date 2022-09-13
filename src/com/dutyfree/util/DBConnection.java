@@ -11,7 +11,7 @@ import java.util.Properties;
 
 public class DBConnection {
 
-	   private static Connection conn;
+	  // private static Connection conn;
 	   private static String url = "jdbc:oracle:thin:@localhost:1521/xepdb1";
 	   private static String uid ="dutyfree";
 	   private static String pwd= "dutyfree";

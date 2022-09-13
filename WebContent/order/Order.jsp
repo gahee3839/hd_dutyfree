@@ -3,7 +3,7 @@
 
 <!DOCTYPE html>
 <html lang="ko">
-<%@include file="../header.jsp"%>
+<%@include file="../include/header.jsp"%>
 <body>
 	<div id="wrap">
 		<!-- header -->
@@ -7501,7 +7501,7 @@ function krwToUsd(krwAmt, exchr) {
 		location.href = ctx_shop + '/dm/main.do';
 	}
 </script>
-	<%@include file="../footer.jsp"%>
+	<%@include file="../include/footer.jsp"%>
 
 	<!-- 공통 팝업 정의 START -->
 	<style type="text/css">

@@ -12,6 +12,14 @@ import com.dutyfree.controller.action.CsListAction;
 import com.dutyfree.controller.action.CsViewAction;
 import com.dutyfree.controller.action.CsWriteAction;
 import com.dutyfree.controller.action.CsWriteFormAction;
+import com.dutyfree.controller.action.FindId_page;
+import com.dutyfree.controller.action.FindPw_page;
+import com.dutyfree.controller.action.LoginForm;
+import com.dutyfree.controller.action.LoginMember;
+import com.dutyfree.controller.action.Logout;
+import com.dutyfree.controller.action.Update_page;
+import com.dutyfree.controller.action.delete_form;
+import com.dutyfree.controller.action.indexAction;
 
 public class ActionFactory {
 	private static ActionFactory instance = new ActionFactory();
@@ -53,12 +61,35 @@ public class ActionFactory {
 			action = new AdminCsListAction();
 		}
 		
+
 		// 0913 김민선
 		// MyHD_orderdetail
-		
 		if(command.equals("order_detail")) {
 			action = new OrderDetailAction();
 		}
+		
+		// 0913 박진수
+		//로그인
+		if(command.equals("index")) {
+			action=new indexAction();
+		}
+		if(command.equals("login")) {
+			action=new LoginMember();
+		}else if(command.equals("login_form")) {
+			action=new LoginForm();
+		}else if(command.equals("Logout")) {
+			action=new Logout();
+		}else if(command.equals("FindId_Page")) {
+			action=new FindId_page();
+		}else if(command.equals("FindPw_Page")) {
+			action=new FindPw_page();
+		}else if(command.equals("Update_page")) {
+			action=new Update_page();
+		}else if(command.equals("delete_form")) {
+			action=new delete_form();
+		}
+
+		
 		
 		return action;
 		

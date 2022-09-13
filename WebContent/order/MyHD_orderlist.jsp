@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@include file="../header.jsp"%>
+<%@include file="../include/header.jsp"%>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -1500,7 +1500,7 @@ function isValidDate(d) {
 		location.href = ctx_shop + '/dm/main.do';
 	}
 </script>
-<%@include file="../footer.jsp"%>
+<%@include file="../include/footer.jsp"%>
 
 	<div class="modal_wrap mainPopWrap"></div>
 	<!-- 공통 팝업 정의 ENd -->
