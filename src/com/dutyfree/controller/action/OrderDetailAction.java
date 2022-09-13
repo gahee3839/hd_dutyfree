@@ -1,5 +1,5 @@
 //0913 김민선 생성
-package com.dutyfree.admin.controller.action;
+package com.dutyfree.controller.action;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -40,6 +40,7 @@ public class OrderDetailAction implements Action {
       request.setAttribute("orderDetail", orderList.get(0));  
       request.setAttribute("orderList", orderList);
       request.setAttribute("totalPrice", totalPrice);
+      
       System.out.println(orderList);
 //    }
     request.getRequestDispatcher(url).forward(request, response);

@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
-<!--  <%@ include file= "../include/header.jsp" %> -->
+ <%@ include file= "../header.jsp" %> 
 
 
 	    <nav class="navication">
@@ -1756,7 +1756,7 @@ function isValidDate(d) {
 		location.href = ctx_shop + '/dm/main.do';
 	}
 </script>
-<!--  <%@ include file="/include/footer.jsp" %>-->
+ <%@ include file="../footer.jsp" %>
 
 <!-- 판매자별 사업자 정보 -->
 <div id="seller_information" title="판매자별 사업자 정보" style="display:none;">
