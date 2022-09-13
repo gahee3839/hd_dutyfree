@@ -201,4 +201,8 @@ public class OrderDAO {
 	 * pstmt.setString(1, oseq); pstmt.executeUpdate(); } catch (Exception e) {
 	 * e.printStackTrace(); } finally { DBManager.close(conn, pstmt); } }
 	 */
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> branch 'master' of https://github.com/gahee3839/hd_dutyfree.git

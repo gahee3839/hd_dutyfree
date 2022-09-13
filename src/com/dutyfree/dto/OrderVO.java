@@ -110,5 +110,12 @@ public class OrderVO {
 				+ ", pPrice=" + pPrice + ", pDiscount=" + pDiscount + ", odAmount=" + odAmount + ", oDate=" + oDate
 				+ ", oShipping=" + oShipping + "]";
 	}
+<<<<<<< HEAD
 
 }
+=======
+	
+	
+
+}
+>>>>>>> branch 'master' of https://github.com/gahee3839/hd_dutyfree.git

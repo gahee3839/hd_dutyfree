@@ -1,2 +1,11 @@
 /build/
+<<<<<<< HEAD
 /bin/
+=======
+
+.classpath
+
+.settings/org.eclipse.jdt.core.prefs
+
+settings/org.eclipse.wst.common.project.facet.core.xml
+>>>>>>> branch 'master' of https://github.com/gahee3839/hd_dutyfree.git
