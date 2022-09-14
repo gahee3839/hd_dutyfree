@@ -2,6 +2,7 @@
   pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  
+
 <%
 String memId=(String)session.getAttribute("memId");
 %>  
@@ -586,6 +587,7 @@ String memId=(String)session.getAttribute("memId");
 	    		<a class="menu_login_join" id="logoutBtn" href="DutyfreeServlet?command=Logout">로그아웃</a>
 	    		<a class="menu_login_join" href="DutyfreeServlet?command=Update_page">마이페이지</a>	
 	    		
+
 	    		<ul>
 	            <li class="item_01">
 	                <a href="장바구니 링크"><strong>장바<br>구니</strong><em id="rwingCartCnt" style="display: none"></em></a>

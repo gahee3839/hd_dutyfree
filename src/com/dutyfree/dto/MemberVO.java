@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.sql.Timestamp;
 
 public class MemberVO{
+	private String memNo;
 	private String memId;
 	private String memPw;
 	private String memName;
@@ -13,6 +14,16 @@ public class MemberVO{
 	private String memPhone;
 	private String memGender;
 	
+	
+	
+	public String getMemNo() {
+		return memNo;
+	}
+
+	public void setMemNo(String memNo) {
+		this.memNo = memNo;
+	}
+
 	public String getMemId() {
 		return memId;
 	}
