@@ -1,11 +1,11 @@
-<%@page import="com.dutyfree.dto.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  
- <%
-MemberVO member=(MemberVO)session.getAttribute("member");
-%> 
+
+<%
+String memId=(String)session.getAttribute("memId");
+%>  
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -328,43 +328,7 @@ MemberVO member=(MemberVO)session.getAttribute("member");
 		});
 	}
 	
-    // 검색 레이어 띄울때 자동저장 상태 세팅
-	function setAutoSave() {
-		if(dq_autoSearchType == "basic"){
-			dq_searchTextbox = document.getElementById("basicSearchTerm");
-			if(showType == 'intro'){
-				dq_searchTextbox = document.getElementById("basicSearchTermIntro");
-			}
-		} else {
-			dq_searchTextbox = document.getElementById("hashSearchTerm");
-			if(showType == 'intro'){
-				dq_searchTextbox = document.getElementById("hashSearchTermIntro");
-			}
-		}
-		
-    	if ($("#rcntOffYn").val() === 'Y') {
-    		//console.log("자동저장 체크됨  : " + $("#rcntOffYn").val());
-    		$('input[id="autoSaveBtn"]').attr('checked', true);
-    		$("#rcntKeyword").show();
-    		$("#deleteAll").show();
-    		$(".words_list #noRcnt").hide();
-    		
-    		// 사용하지만 최근 검색어가 없을때 
-    	 	if ($("#rcntWrdYn").val() === 'N') {
-    	 		//$("#rcntKeyword").hide();
-    	 		$("#deleteAll").hide();
-    	 		$(".words_list #noRcnt").show();
-    	 		$("#noRcnt").text('최근 검색어가 없습니다.');
-    	 	}
-    	} else {
-    		//console.log("자동저장 체크헤제됨  : " + $("#rcntOffYn").val());
-    		$('input[id="autoSaveBtn"]').attr('checked', false);
-    		$(".words_list #noRcnt").show();
-    		$("#noRcnt").text('자동저장 기능 미사용 중입니다.');
-    		$("#rcntKeyword").hide();
-    		$("#deleteAll").hide();
-    	}
-	}
+   
 	
 	
 	// 해시태그 결과 페이지인 경우 검색창 전환
@@ -615,19 +579,21 @@ MemberVO member=(MemberVO)session.getAttribute("member");
     }
 </script><!-- 검색 레이어 영역 END-->
 	    <div class="default_menu">
-	     <% if(member == null){ %>
-	    	<a class="menu_login_join" href="DutyfreeServlet?command=login_form" id="loginBtn";">로그인</a>
+	    <!-- 진수 수정 -->
+	      <% if(memId == null){ %> 
+	    	<a class="menu_login_join" href="DutyfreeServlet?command=login_form" id="loginBtn">로그인</a>
 	    			<a class="menu_login_join" href="회원가입 링크">회원가입</a>	
-	    		< <%}else{ %> 
+	    		<%}else{ %> 
 	    		<a class="menu_login_join" id="logoutBtn" href="DutyfreeServlet?command=Logout">로그아웃</a>
 	    		<a class="menu_login_join" href="DutyfreeServlet?command=Update_page">마이페이지</a>	
-	    		< <%} %> 
+	    		
+
 	    		<ul>
 	            <li class="item_01">
 	                <a href="장바구니 링크"><strong>장바<br>구니</strong><em id="rwingCartCnt" style="display: none"></em></a>
 	            </li>
 	            <li class="item_02">
-	                <a href="주문조회 링크"><strong>주문<br>조회</strong></a>
+	                <a href="../order/MyHD_orderlist"><strong>주문<br>조회</strong></a>
 	            </li>
 	            <li class="item_03">
 	                <a href="마이페이지 링크"><strong>마이<br>현대</strong></a>
@@ -640,6 +606,7 @@ MemberVO member=(MemberVO)session.getAttribute("member");
 	            </li>
 	            <li class="exchange_rate exchageRateTxt"></li>
 	        </ul>
+	        <%} %>  
 	    </div>
 	    <!-- 히든메뉴 START -->
 	    <script type="text/javascript">

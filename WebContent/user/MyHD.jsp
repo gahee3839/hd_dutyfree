@@ -1,11 +1,18 @@
-<%@page import="com.dutyfree.dto.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-<%@ include file="/include/header.jsp" %>
-
-<!-- // header -->
-	    <!-- container -->
+<%@ include file= "../include/header.jsp" %>
+<!-- 진수 수정 url로 사이트 들어갈 시 에러 페이지로 이동 -->
+<%
+if(memId==null){
+%>
+<script language='javascript'>
+location.href='../DutyfreeServlet?command=error';
+</script>
+<!--
+location.href='/프로젝트이름/DutyfreeServlet?command=error'; 으로 바꾸고 실행
+ -->
+<%} %>
+<!-- container -->
 		<main id="container" >
 			<script type="text/javascript">
 $(function(){
@@ -72,7 +79,7 @@ $(function(){
         <div class="myinfo">
         	<p class="name">
             	<strong>
-		            <%=member.getMemName() %></strong> <em>님</em>
+		            ${member.memName}</strong> <em>님</em>
             	</p>
             <a nohref class="passregist" onclick="goUrl('/mm/myInfo/inptMbshPwd.do?type=pspt');">여권정보 등록</a>
                 <div class="mylv">
@@ -80,32 +87,23 @@ $(function(){
                 <span class="lv_off_up002"></span>
                 </div>
         </div>
-        <div class="mypresent">
-            <dl style="height:200px; padding-top:80px ;">
+         <div class="mypresent">
+            <dl style="height:200px; padding-top:80px; width: 250px;">
                 <a href="주문내역">
                     <dt style="font-size:20px;">주문내역</dt>
                 </a>                   
             </dl>
-            <dl style="height:200px; padding-top:80px ;">
+            <dl style="height:200px; padding-top:80px; width: 250px;">
                 <a href="/mm/myCont/listCounQustBbs.do">
                     <dt style="font-size:20px;">문의내역</dt>
                 </a>
             </dl>
-           <!--  <dl style="height:200px; padding-top:80px ;">
+            <dl style="height:200px; padding-top:80px; width: 250px;">
                 <a href="/mm/myInfo/inptMbshPwd.do?type=base">
                     <dt style="font-size:20px;">기본정보관리</dt>
                 </a>
-            </dl> -->
-            <dl style="height:200px; padding-top:80px ;">
-                <a href="/mm/myInfo/inptMbshPwd.do?type=pspt">
-                    <dt style="font-size:20px;">여권정보관리</dt>
-                </a>
             </dl>
-            <dl style="height:200px; padding-top:80px ;">
-				  <a href="/mm/myInfo/listMbshDpatInfo.do">
-                    <dt style="font-size:20px;">출국정보관리</dt>
-                </a>
-	        </dl>
+            
             
         </div>
     </div>
@@ -151,31 +149,31 @@ $(function(){
 					<tbody>
 					<tr>
 						<th scope="row" class="bt_no">아이디</th>
-						<td class="bt_no"><%=member.getMemId() %></td>
+						<td class="bt_no">${member.memId}</td>
 					</tr>
 					<tr>
 						<th scope="row" class="bt_no">성명</th>
-						<td class="td_data"><%=member.getMemName() %>
+						<td class="td_data">${member.memName}
 						<p class="t_info">한글 성명은 고객센터(1811-6688)통해서 수정이 가능합니다.</p>
 						</td>
 					</tr>
 					<tr>
 						<th scope="row" class="bt_no">성별</th>
 						<td class="td_data"> 
-						<%=member.getMemGender() %>
+						${member.memGender }
 						<p class="t_info">성별은 고객센터(1811-6688)통해서 수정이 가능합니다.</p>
 						</td>
 					</tr> 
 					<tr>
 						<th scope="row">생년월일</th>
 						<td class="td_data"> 
-						<%=member.getMemBirth()%>
+						${member.memBirth }
 						</td>
 					</tr> 
 					<tr>
 						<th scope="row">휴대폰번호</th>
 						<td class="td_data"> 
-						<input type="text" value=<%=member.getMemPhone()%>>
+						<input type="text" value="${member.memPhone }">
 						</td>
 					</tr>  
 					<tr>
@@ -438,10 +436,6 @@ $(function(){
 		}
 	});
 });
-
-$(function(){
-	$("#deleteMember").click(function(){ window.open("./DutyfreeServlet?command=delete_form","width=700,height=800 toolbar=no,status=no,location=no,scrollbar=yes,resizeable=yes") });
-})
 </script><!-- <article id="content">
             <form id="frmChkMbshPwd" name="frmChkMbshPwd" method="post" action="">
                 <section class="myhd_content">
@@ -475,4 +469,4 @@ $(function(){
 		location.href = ctx_shop + '/dm/main.do';
 	}
 </script> -->
-<%@ include file="/include/footer.jsp" %>
+<%@include file="../include/footer.jsp" %>

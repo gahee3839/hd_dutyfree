@@ -1,3 +1,4 @@
+ <%@ page import="java.util.*" %>
 <%@page import="com.dutyfree.dto.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>

@@ -6,6 +6,7 @@ import com.dutyfree.admin.controller.action.AdminMainAction;
 import com.dutyfree.admin.controller.action.AdminMemberListAction;
 import com.dutyfree.admin.controller.action.AdminOrderListAction;
 import com.dutyfree.admin.controller.action.AdminProductListAction;
+import com.dutyfree.controller.action.OrderDetailAction;
 import com.dutyfree.controller.action.Action;
 import com.dutyfree.controller.action.CsListAction;
 import com.dutyfree.controller.action.CsViewAction;
@@ -33,11 +34,7 @@ public class ActionFactory {
 
 	public Action getAction(String command) {
 		Action action = null;
-<<<<<<< HEAD
-		System.out.println("ActionFactory : "+command);
-		
 
-=======
 		System.out.println("ActionFactory : " + command);
 		
 		// 22/09/12 김가희 추가
@@ -51,7 +48,7 @@ public class ActionFactory {
 			action = new CsViewAction();
 		}
 		
-		//admin
+		// admin
 		if(command.equals("admin_main")) {
 			action = new AdminMainAction();
 		}else if(command.equals("admin_product_list")) {
@@ -64,6 +61,14 @@ public class ActionFactory {
 			action = new AdminCsListAction();
 		}
 		
+
+		// 0913 김민선
+		// MyHD_orderdetail
+		if(command.equals("order_detail")) {
+			action = new OrderDetailAction();
+		}
+		
+		// 0913 박진수
 		//로그인
 		if(command.equals("index")) {
 			action=new indexAction();
@@ -84,12 +89,11 @@ public class ActionFactory {
 			action=new delete_form();
 		}
 		
-		
-		
-		
-		
->>>>>>> branch 'master' of https://github.com/gahee3839/hd_dutyfree.git
 		return action;
+		
+		
+		
+	
 	}
 
 }

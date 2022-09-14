@@ -1,21 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@include file="../WEB-INF/header.jsp"%>
+<%@include file="../include/header.jsp"%>
 <!DOCTYPE html>
 <html lang="ko">
 
 <body>
 	<div id="wrap">
-		<!-- header -->
-		<meta name="google-site-verification"
-			content="rYjJmYP3q9lxBYCTSa_Tg3h1N9l3yZjJGp0AFaKCZlM" />
-		<!-- Google Tag Manager (noscript) -->
-		<noscript>
-			<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-56VKRZT"
-				height="0" width="0" style="display: none; visibility: hidden"></iframe>
-		</noscript>
-		<!-- End Google Tag Manager (noscript) -->
-
 		<script type="text/javascript">
 	$(document).ready(function(){
 		var currency = getCookie("currencyType");	
@@ -205,7 +195,7 @@
 	// HDDFS 리뉴얼 프로젝트 [고영주] - 트래킹코드
 	
 </script>
-		
+
 
 		<!-- container -->
 		<main id="container">
@@ -881,118 +871,44 @@ function fn_onlnEltRcpt(orderNo, billNo){
 					<div class="myhd_firinfo">
 						<div class="myinfo">
 							<p class="name">
-								<strong> 김*선</strong> <em>님</em>
+								<strong> 이름 넣기</strong> <em>님</em>
 							</p>
-							<p class="passinfo">
-								<span>M978*****</span> <span>2026-11-01</span>
-							</p>
-							<div class="mylv">
+						
+							<div class="mylv" style = "padding-top: 10px;">
 								<span class="lv_on_up001"></span> <span class="lv_off_up002"></span>
 							</div>
 						</div>
 						<div class="mypresent">
-							<dl>
-								<a href="https://www.hddfs.com/shop/mm/myBnf/listSvmt.do">
-									<dt>적립금</dt>
-									<dd id="svmtAmt">
-										<strong>0</strong>원
-									</dd>
+							<dl style="height: 200px; padding-top: 80px;">
+								<a href="주문내역">
+									<dt style="font-size: 20px;">주문내역</dt>
 								</a>
 							</dl>
-							<dl>
-								<a href="https://www.hddfs.com/shop/mm/myBnf/listCup.do">
-									<dt>쿠폰</dt>
-									<dd>
-										<strong>0</strong>장
-									</dd>
+							<dl style="height: 200px; padding-top: 80px;">
+								<a href="/mm/myCont/listCounQustBbs.do">
+									<dt style="font-size: 20px;">문의내역</dt>
 								</a>
 							</dl>
-							<dl>
-								<a href="https://www.hddfs.com/shop/mm/myBnf/listGfca.do">
-									<dt>예치금</dt>
-									<dd id="mainCdpst">
-										<strong>0</strong>원
-									</dd>
+							<dl style="height: 200px; padding-top: 80px;">
+								<a href="/mm/myInfo/inptMbshPwd.do?type=base">
+									<dt style="font-size: 20px;">기본정보관리</dt>
 								</a>
 							</dl>
-							<dl>
-								<a
-									href="https://www.hddfs.com/shop/mm/myBnf/listGfca.do?gfcaClsType=GFCA">
-									<dt>상품권 전환금</dt>
-									<dd>
-										<strong>0</strong>원
-									</dd>
+							<dl style="height: 200px; padding-top: 80px;">
+								<a href="/mm/myInfo/inptMbshPwd.do?type=pspt">
+									<dt style="font-size: 20px;">여권정보관리</dt>
 								</a>
 							</dl>
-							<dl>
-								<dt>H.Point</dt>
-								<dd id="hpointAmt">
-									<strong>0</strong>P
-								</dd>
-							</dl>
-							<dl>
-								<dt>H.Point Plus 포인트</dt>
-								<dd>
-									<a href="https://www.h-point.co.kr/cu/main/index.nhd">조회</a>
-								</dd>
-							</dl>
-							<dl>
-								<dt>구매금액</dt>
-								<dd id="setTotBuyAmtNtnl">
-									<strong>$0</strong>
-								</dd>
-							</dl>
-							<dl>
-								<a href="https://www.hddfs.com/shop/om/consmCont/mbshLvlInfo.do">
-									<dt>승급잔여금액</dt>
-									<dd id="setRestPrice">
-										<strong>$0</strong>
-									</dd>
+							<dl style="height: 200px; padding-top: 80px;">
+								<a href="">
+									<dt style="font-size: 20px;">출국정보관리</dt>
 								</a>
-							</dl>
-							<dl>&nbsp;
-							</dl>
-							<dl>&nbsp;
 							</dl>
 						</div>
 					</div>
-					<div class="mymenu">
-						<p class="ti">My Hyundai
-						<ul>
-							<li><a nohref onclick="goUrl('/mm/myOrder/listOrder.do');">주문내역</a></li>
-							<li><a nohref onclick="goUrl('/mm/myOrder/listSpord.do');">스페셜오더/H.Share</a></li>
-
-							<li id="hPointPay"><a nohref
-								onclick="goHPointPay('bb2880');">H.Point Pay 관리</a></li>
-
-							<li><a nohref onclick="goUrl('/mm/myBnf/listSvmt.do');">적립금내역</a></li>
-							<li><a nohref onclick="goUrl('/mm/myBnf/listCup.do');">쿠폰내역</a></li>
-							<li><a nohref onclick="goUrl('/mm/myBnf/listGfca.do');">예치금/상품권전환금</a></li>
-							<li><a nohref
-								onclick="goUrl('/mm/myOrder/listBrandAlarm.do');">알림 신청 내역</a></li>
-							<li><a nohref
-								onclick="goUrl('/mm/myEvntSpex/listEvntPtcp.do');">나의
-									이벤트/기획전</a></li>
-							<li><a nohref onclick="goUrl('/mm/myCont/listCnrGoos.do');">관심
-									상품/브랜드</a></li>
-							<li><a nohref
-								onclick="goUrl('/mm/myCont/listCounQustBbs.do');">문의내역</a></li>
-							<li><a nohref onclick="goUrl('/mm/grvws/mainGrvws.do');">상품평</a></li>
-							<li><a nohref
-								onclick="goUrl('/mm/myInfo/inptMbshPwd.do?type=base');">기본정보관리</a></li>
-							<li><a nohref
-								onclick="goUrl('/mm/myInfo/inptMbshPwd.do?type=pspt');">여권정보관리</a></li>
-							<li><a nohref
-								onclick="goUrl('/mm/myInfo/listMbshDpatInfo.do');">출국정보관리</a></li>
-							<li><a nohref onclick="liMyChgPwd();">비밀번호변경</a></li>
-							<li><a nohref onclick="goUrl('/mm/myInfo/snsConn.do');">SNS
-									간편로그인 설정</a></li>
-						</ul>
-						<button class="btn_view">메뉴더보기</button>
-						</p>
-					</div>
-				</article>
-				<script type="text/javascript">
+	</div>
+	</article>
+	<script type="text/javascript">
 
 $(document).ready(function(evt){
     getSvmtAmtAble();
@@ -1170,24 +1086,20 @@ $(function(){
 	});
 });
 </script>
-				<article id="content">
-					<section class="myhd_content">
+	<article id="content">
+		<section class="myhd_content" style ="padding-top: 0px;">
 
-						<div class="tab-action">
-							<ul class="tab_2depth tab_center">
+			<div class="tab-action">
+				<div class ="ui-tab tab_center " style ="font-size: 30px; font-weight: 700; text-decoration: underline; text-underline-position:under;text-decoration-thickness: 3px;">주문일 기준</div>
 
-								<li class="ui-tab" id="tabCtgOrderType" value="order"><a
-									onclick="fn_search('order');" href="#date_order">주문일 기준</a></li>
-							</ul>
 
-							<form id="mainForm" name="mainForm" method="get">
-								<input type="hidden" name="srchStdCd" id="srchStdCd"
-									value="order"> <input type="hidden" name="tabType"
-									id="tabType" value="onln"> <input type="hidden"
-									name="page" id="page" value="1"> <input type="hidden"
-									name="totalPage" id="totalPage" value="1">
+				<form id="mainForm" name="mainForm" method="get">
+					<input type="hidden" name="srchStdCd" id="srchStdCd" value="order">
+					<input type="hidden" name="tabType" id="tabType" value="onln">
+					<input type="hidden" name="page" id="page" value="1"> <input
+						type="hidden" name="totalPage" id="totalPage" value="1">
 
-								<script> 
+					<script> 
 $(document).ready(function(){
 	
 	//최초 페이지 접근시(날짜조건 빈값일경우) - 온라인/출국일기준
@@ -1385,147 +1297,139 @@ function isValidDate(d) {
 }
 
 </script>
-								<input type="hidden" name="monVal" id="monVal" value="" />
-								<div class="period">
-									<div class="period_cover">
-										<ul class="textbox monthbox">
-											<li><a nohref onclick="fnDateSetting(this,'1');"
-												id="dtSrchFirstTab">1개월</a></li>
-											<li><a nohref onclick="fnDateSetting(this,'3');">3개월</a></li>
-											<li><a nohref onclick="fnDateSetting(this,'6');">6개월</a></li>
-											<li><a nohref onclick="fnDateSetting(this,12);">12개월</a></li>
-										</ul>
-										<div class="datebox">
-											<span class="datepicker_box"> <input type="text"
-												id="stDt" name="stDt" onkeyup="isNumber(this);"
-												class="datepicker" value="" maxlength="10"
-												placeholder="0000-00-00">
-											</span> <span class="from">~</span> <span class="datepicker_box">
-												<input type="text" id="endDt" name="endDt"
-												onkeyup="isNumber(this);" class="datepicker" value=""
-												maxlength="10" placeholder="0000-00-00">
-											</span>
+					<input type="hidden" name="monVal" id="monVal" value="" />
+					<div class="period">
+						<div class="period_cover">
+							<ul class="textbox monthbox">
+								<li><a nohref onclick="fnDateSetting(this,'1');"
+									id="dtSrchFirstTab">1개월</a></li>
+								<li><a nohref onclick="fnDateSetting(this,'3');">3개월</a></li>
+								<li><a nohref onclick="fnDateSetting(this,'6');">6개월</a></li>
+								<li><a nohref onclick="fnDateSetting(this,12);">12개월</a></li>
+							</ul>
+							<div class="datebox">
+								<span class="datepicker_box"> <input type="text"
+									id="stDt" name="stDt" onkeyup="isNumber(this);"
+									class="datepicker" value="" maxlength="10"
+									placeholder="0000-00-00">
+								</span> <span class="from">~</span> <span class="datepicker_box">
+									<input type="text" id="endDt" name="endDt"
+									onkeyup="isNumber(this);" class="datepicker" value=""
+									maxlength="10" placeholder="0000-00-00">
+								</span>
+							</div>
+							<button type="button" class="btnde_type1 mid dcheck_btn"
+								onclick="fnValidation();">조회</button>
+						</div>
+					</div>
+
+
+
+
+					<div id="my_order">
+						<div class="cart_list" id="onln_list">
+							<div id="dpatDiv">
+								<div id="date_departure">
+									<div class="sorting_wrap myhd"">
+										<span class="txt_total">총 <strong>1</strong>개
+										</span>
+										<div class="sort_r">
+											<select name="billStat" id="billStat1">
+												<option value="">전체</option>
+												<option value="010">최신순</option>
+												<option value="020">오래된순</option>
+												<option value="030^040">금액 높은순</option>
+												<option value="050">금액 낮은순</option>
+							
+											</select>
 										</div>
-										<button type="button" class="btnde_type1 mid dcheck_btn"
-											onclick="fnValidation();">조회</button>
+									</div>
+									<div class="list_table01">
+										<table>
+											<colgroup>
+												<col width="108px">
+												<col width="100%">
+												<col width="140px">
+												<col width="298px">
+												<col width="55px">
+												<col width="156px">
+												<col width="106px">
+											</colgroup>
+											<tbody id="onlnDpatList_cart">
+												<tr>
+													<th>주문일자</th>
+													<th>주문번호</th>
+													<th>이미지</th>
+													<th>상품명</th>
+													<th>수량</th>
+													<th>결제금액</th>
+													<th>주문상태</th>
+												</tr>
+												<tr id="onlnDpatList_add">
+
+													<td rowspan="0">2022-09-08</td>
+													<td><a
+														href="//www.hddfs.com/shop/mm/myOrder/dtlOrder.do?orderNo=OR2022090800194"
+														class="order_number numshort">OR2022090800194</a></td>
+
+													<td>
+														<div class="product_info" style ="padding-left:35px;">
+															<span class="on_img"> <img
+																src="https://cdn.hddfs.com/files/goos/0073/20220422/70852e7b.png?sf=webp&RS=60X60"
+																alt="키엘 클리어리 코렉티브 다크 스팟 솔루션 115ML"
+																onerror="this.onerror=null; this.src='https://cdn.hddfs.com/front/images/KO/common/no_img252.jpg';">
+															</span>
+													</td>
+													<td>
+															<dl>
+																<dt>키엘</dt>
+																<dd>키엘 클리어리 코렉티브 다크 스팟 솔루션 115ML</dd>
+																
+															</dl>
+														</div>
+													</td>
+													<td>0</td>
+													<td><del class="delprice">$0</del>
+														<p class="dollar">$0</p>
+														<p class="k_won">
+															0<span>원</span>
+														</p></td>
+													<td>취소완료</td>
+												</tr>
+											</tbody>
+										</table>
 									</div>
 								</div>
-
-
-
-
-								<div id="my_order">
-									<div class="cart_list" id="onln_list">
-										<div id="dpatDiv">
-											<div id="date_departure">
-												<div class="sorting_wrap myhd"">
-													<span class="txt_total">총 <strong>1</strong>개
-													</span>
-													<div class="sort_r">
-														<select name="billStat" id="billStat1">
-															<option value="">전체</option>
-															<option value="010">입금대기</option>
-															<option value="020">주문완료</option>
-															<option value="030^040">상품준비중</option>
-															<option value="050">인도대기</option>
-															<option value="065">인도완료</option>
-															<option value="060">미인도</option>
-															<option value="080">취소신청</option>
-															<option value="070">반품신청</option>
-															<option value="100">취소완료</option>
-															<option value="090">반품완료</option>
-														</select>
-													</div>
-												</div>
-												<div class="list_table01">
-													<table>
-														<colgroup>
-															<col width="108px">
-															<col width="100%">
-															<col width="140px">
-															<col width="298px">
-															<col width="55px">
-															<col width="156px">
-															<col width="106px">
-														</colgroup>
-														<tbody id="onlnDpatList_cart">
-															<tr>
-																<th>주문일자</th>
-																<th>주문번호</th>
-															
-																<th>상품명</th>
-																<th>수량</th>
-																<th>결제금액</th>
-																<th>주문상태</th>
-															</tr>
-															<tr id="onlnDpatList_add">
-
-																<td rowspan="0">2022-09-08
-																</td>
-																<td>
-																<a
-																	href="//www.hddfs.com/shop/mm/myOrder/dtlOrder.do?orderNo=OR2022090800194"
-																	class="order_number numshort">OR2022090800194</a>
-																</td>
-
-																
-																<td>
-																	<div class="product_info">
-																		<span class="on_img"> <img
-																			src="https://cdn.hddfs.com/files/goos/0073/20220422/70852e7b.png?sf=webp&RS=60X60"
-																			alt="키엘 클리어리 코렉티브 다크 스팟 솔루션 115ML"
-																			onerror="this.onerror=null; this.src='https://cdn.hddfs.com/front/images/KO/common/no_img252.jpg';">
-																		</span>
-																		<dl>
-																			<dt>키엘</dt>
-																			<dd>키엘 클리어리 코렉티브 다크 스팟 솔루션 115ML</dd>
-																			<dd>SKU NO :</dd>
-																		</dl>
-																	</div>
-																</td>
-																<td>0</td>
-																<td><del class="delprice">$0</del>
-																	<p class="dollar">$0</p>
-																	<p class="k_won">
-																		0<span>원</span>
-																	</p></td>
-																<td>취소완료</td>
-															</tr>
-														</tbody>
-													</table>
-												</div>
-											</div>
-										</div>
-
-
-									</div>
-							</form>
-						</div>
-						<div class="attention_area">
-							<p class="attention_tit">유의사항</p>
-							<div class="attention_list">
-								&bull; 결제 완료 후 주문 내역에서 구매하신 상품이 확인되지 않을 경우 로그아웃 후 재로그인 해주시기
-								바랍니다.<br /> &nbsp;&nbsp;<br /> &bull; 아래의 경우 인도장에서 상품 수령이
-								제한되오니 반드시 확인해 주시기 바랍니다.<br /> - 주문하신 고객님과 출국하시는 고객님의 정보가 불일치 할
-								경우<br /> - 주문서에 기재된 여권번호와 출국 시 여권번호가 불일치 할 경우<br /> - 등록된
-								출국정보(출국장소, 출국일시, 편명 등)와 실 출국정보가 다른 경우<br /> <br /> &bull; 출국
-								정보 변경을 원하실 경우, 출국일 최소 3일 전에 고객센터로 연락해 주시기 바랍니다.(단, 지방공항 이용 시
-								4일전)<br /> &bull; 출국 시 인도받지 못한 물건은 고객센터로 연락 바랍니다.<br />
-								&bull;&nbsp;화장품/식품等 유통기한과 연관있는 상품의 경우 출국정보 변경 시 유통기한이 임박 또는 초과된
-								상품을 받을 수 있으므로 유의하시기 바랍니다.<br /> &bull; 추가 궁금하신 내용은 고객센터
-								(1811-6688 / 운영시간 09:30~18:30) 로 문의바랍니다. <a
-									href="https://www.hddfs.com/shop/om/consmComm/faq.do"
-									class="link_txt_point">FAQ 바로가기</a>
 							</div>
+
+
 						</div>
-						<div id="printCoup"></div>
-						<div id="oflnEltRcpt"></div>
-						<div id="onlnEltRcpt"></div>
-					</section>
-				</article>
-			</main>
-			<!-- // container -->
-			<script type="text/javascript">
+				</form>
+			</div>
+			<div class="attention_area">
+				<p class="attention_tit">유의사항</p>
+				<div class="attention_list">
+					&bull; 결제 완료 후 주문 내역에서 구매하신 상품이 확인되지 않을 경우 로그아웃 후 재로그인 해주시기 바랍니다.<br />
+					&nbsp;&nbsp;<br /> &bull; 아래의 경우 인도장에서 상품 수령이 제한되오니 반드시 확인해 주시기
+					바랍니다.<br /> - 주문하신 고객님과 출국하시는 고객님의 정보가 불일치 할 경우<br /> - 주문서에 기재된
+					여권번호와 출국 시 여권번호가 불일치 할 경우<br /> - 등록된 출국정보(출국장소, 출국일시, 편명 등)와 실
+					출국정보가 다른 경우<br /> <br /> &bull; 출국 정보 변경을 원하실 경우, 출국일 최소 3일 전에
+					고객센터로 연락해 주시기 바랍니다.(단, 지방공항 이용 시 4일전)<br /> &bull; 출국 시 인도받지 못한
+					물건은 고객센터로 연락 바랍니다.<br /> &bull;&nbsp;화장품/식품等 유통기한과 연관있는 상품의 경우
+					출국정보 변경 시 유통기한이 임박 또는 초과된 상품을 받을 수 있으므로 유의하시기 바랍니다.<br /> &bull;
+					추가 궁금하신 내용은 고객센터 (1811-6688 / 운영시간 09:30~18:30) 로 문의바랍니다. <a
+						href="https://www.hddfs.com/shop/om/consmComm/faq.do"
+						class="link_txt_point">FAQ 바로가기</a>
+				</div>
+			</div>
+			<div id="printCoup"></div>
+			<div id="oflnEltRcpt"></div>
+			<div id="onlnEltRcpt"></div>
+		</section>
+	</article>
+	</main>
+	<!-- // container -->
+	<script type="text/javascript">
 	function sellerInfo(){
 	    $("#seller_information").dialog("open");
 	}
@@ -1543,289 +1447,8 @@ function isValidDate(d) {
 		location.href = ctx_shop + '/dm/main.do';
 	}
 </script>
-			<footer id="footer">
-				<div class="policy">
-					<div class="box">
-						<div class="policy_menu">
-							<a href="https://www.hddfs.com/store/kr/dm/main.do"
-								target="_blank">현대백화점 DUTY FREE 소개</a> <a
-								href="https://www.hddfs.com/shop/om/consmCont/stoPtnsQust.do">입점/제휴</a>
-							<a
-								href="https://www.hddfs.com/shop/om/consmCont/selectMbshJoinTcnd.do?mbshJoinTcndCd=001">이용약관</a>
-							<a
-								href="https://www.hddfs.com/shop/om/consmCont/selectMbshJoinTcnd.do?mbshJoinTcndCd=008">
-								<strong>개인정보처리방침</strong>
-							</a> <a
-								href="https://www.hddfs.com/shop/om/consmCont/selectMbshJoinTcnd.do?mbshJoinTcndCd=005">영상정보처리기기
-								운영 / 관리방침</a> <a href="javascript:" onclick="popEmailReject();">이메일무단수집거부</a>
-						</div>
-						<div class="family_site">
-							<button>Family Site</button>
-							<div class="list">
-								<p>쇼핑몰 사이트</p>
-								<ul>
-									<li><a href="http://www.hyundaihmall.com/" target="_blank">현대Hmall</a></li>
-									<li><a href="http://www.thehyundai.com/" target="_blank">더현대닷컴</a></li>
-									<li><a href="http://www.thehandsome.com/" target="_blank">더한섬</a></li>
-									<li><a href="http://mall.hyundailivart.co.kr/"
-										target="_blank">현대리바트몰</a></li>
-									<li><a href="http://www.hyundairentalcare.co.kr/"
-										target="_blank">현대렌탈케어</a></li>
-									<li><a href="http://www.hfashionmall.com/" target="_blank">H패션몰</a></li>
-									<li><a href="http://www.h-vrstation.com/" target="_blank">VR
-											STATION</a></li>
-								</ul>
-								<p>관계사 사이트</p>
-								<ul>
-									<li><a href="http://www.ehyundai.com/newPortal/ir/main.do"
-										target="_blank">현대백화점그룹</a></li>
-									<li><a href="https://www.ehyundai.com/newPortal/index.do"
-										target="_blank">현대백화점</a></li>
-									<li><a href="https://www.hyundaihmall.com/"
-										target="_blank">현대홈쇼핑</a></li>
-									<li><a href="https://hyundaigreenfood.com/"
-										target="_blank">현대그린푸드</a></li>
-									<li><a href="http://www.hyundaicatering.co.kr/"
-										target="_blank">현대캐터링시스템</a></li>
-									<li><a href="http://www.cnsfoodsystem.co.kr/"
-										target="_blank">C&amp;S푸드시스템</a></li>
-									<li><a href="https://www.handsome.co.kr/ko/main.do"
-										target="_blank">한섬</a></li>
-									<li><a href="https://www.hyundailivart.co.kr/"
-										target="_blank">현대리바트</a></li>
-									<li><a href="http://www.hyundailnc.com/" target="_blank">현대L&amp;C</a></li>
-									<li><a href="http://home.hyundaidreamtour.com/"
-										target="_blank">현대드림투어</a></li>
-									<li><a href="http://www.hyundairentalcare.co.kr/"
-										target="_blank">현대렌탈케어</a></li>
-									<li><a href="https://www.hyundaifuturenet.co.kr/"
-										target="_blank">현대퓨처넷</a></li>
-									<li><a href="http://www.everdigm.com/" target="_blank">에버다임</a></li>
-									<li><a href="http://www.hyundai-ite.com/" target="_blank">현대IT&amp;E</a></li>
-									<li><a href="http://www.hyundaibioland.co.kr/"
-										target="_blank">현대바이오랜드</a></li>
-									<li><a href="https://www.ezwel.com/" target="_blank">현대이지웰</a></li>
-									<li><a
-										href="http://www.ehyundai.com/newPortal/sc/main/main.do"
-										target="_blank">현대백화점그룹 사회복지재단</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="copy">
-					<div class="copyright">
-						<div class="logo">
-							<span onclick="moveToMain();" style="cursor: pointer;">HYUNDAI
-								DEPARTMENT SHOP - DUTY FREE</span> <strong>주식회사 현대백화점면세점</strong>
-						</div>
-						<ul>
-							<li><span>대표이사 : 이재실</span> <span>서울특별시 강남구 영동대로82길
-									19</span> <span>사업자등록번호 : 850-88-00325</span></li>
-							<li><a
-								href="http://www.ftc.go.kr/www/bizCommView.do?key=232&apv_perm_no=2018322016230202228&pageUnit=10&searchCnd=wrkr_no&searchKrwd=8508800325&pageIndex=1"
-								target="_blank">사업자정보확인</a> <a href="javascript:"
-								onclick="sellerInfo();">판매자별 사업자 정보</a></li>
-							<li><span>통신판매업신고 : 2018-서울강남-02228</span> <span>개인정보보호책임자
-									: 반형철</span> <span>호스팅사업자 : (주)현대백화점면세점</span></li>
-							<li><span>대표번호 : 1811-6688</span> <span>대표메일 :
-									hddfs_official@hddfs.com</span></li>
-						</ul>
-						<p>COPYRIGHT © HYUNDAI DEPARTMENT STORE DUTY FREE. ALL RIGHTS
-							RESERVED.</p>
-						<div class="sns_link">
-							<a href="https://www.facebook.com/HDDFS.official/"
-								target="_blank" class="facebook">facebook</a> <a
-								href="https://www.instagram.com/hddfs.official/" target="_blank"
-								class="instagram">instagram</a>
-						</div>
-					</div>
-					<div class="escrow">
-						<strong>주식회사 케이에스넷 구매안전(에스크로) 서비스 가맹점</strong> <span> 안전한
-							전자상거래를 위해 ㈜ 케이에스넷의 구매안전(에스크로) 서비스에 <br> 가입하여, 구매안전(에스크로)
-							서비스를 제공하고 있습니다.
-						</span>
-						<p>주식회사 케이에스넷 금융감독원 결제대금예치업</p>
-						<p>등록번호 : 02-006-00002</p>
-						<a href="javascript:"
-							onclick="popOpen('http://pgims.ksnet.co.kr/pg_infoc/src/dealinfo/pg_shop_info2.jsp?shop_id=2001106156', 'popEscrowNet', 750, 300);"
-							class="btn_escrow">가입확인하기</a>
-						<ul class="ismsp">
-							<li>인증범위 : 현대백화점면세점 면세점 서비스 운영</li>
-							<li>유효기간 : 2019.11.27~2022.11.26</li>
-						</ul>
-						<div class="award">
-							<a
-								href="http://www.i-award.or.kr/Smart/Assess/FinalCandidateView.aspx?REG_SEQNO=10902"
-								target="_blank">스마트앱어워드 2021<br>디자인 이노베이션 대상
-							</a>
-						</div>
-						<!--//award-->
-						<div class="first">
-							<a href="https://fba.kcforum.co.kr/2022/winner.php"
-								target="_blank">2022 대한민국 퍼스트브랜드 대상<br>면세점 부문 대상
-							</a>
-						</div>
-						<!--//first-->
-					</div>
-				</div>
-			</footer>
+	<%@include file="../include/footer.jsp"%>
 
-			<!-- 판매자별 사업자 정보 -->
-			<div id="seller_information" title="판매자별 사업자 정보"
-				style="display: none;">
-				<div class="layer_popup">
-					<strong>(주)현대백화점면세점 무역센터점</strong>
-					<dl>
-						<dt>대표이사 :&nbsp;</dt>
-						<dt>이재실</dt>
-					</dl>
-					<dl>
-						<dt>통신판매신고 :&nbsp;</dt>
-						<dt>2018-서울강남-02228</dt>
-					</dl>
-					<dl>
-						<dt>사업자등록번호 :&nbsp;</dt>
-						<dt>850-88-00325</dt>
-					</dl>
-					<strong>(주)현대백화점면세점 동대문점</strong>
-					<dl>
-						<dt>대표이사 :&nbsp;</dt>
-						<dt>이재실</dt>
-					</dl>
-					<dl>
-						<dt>통신판매신고 :&nbsp;</dt>
-						<dt>2020-서울중구-0163</dt>
-					</dl>
-					<dl>
-						<dt>사업자등록번호 :&nbsp;</dt>
-						<dt>850-88-00325</dt>
-					</dl>
-				</div>
-			</div>
-	</div>
-	<!-- 공통 팝업 정의 START -->
-	<style type="text/css">
-/* 레이어 팝업 */
-.swiper_control {
-	position: relative
-}
-
-.swiper_control .swiper-pagination {
-	text-align: justify;
-	bottom: 30px;
-	left: 40px;
-	font-size: 15px;
-	font-weight: 600;
-	color: #ffffff
-}
-
-.swiper_control .swiper-pagination span.space {
-	padding: 0 3px;
-	font-weight: 400
-}
-
-.swiper_control .swiper-pagination span.num_total {
-	font-weight: 400
-}
-
-.popswiper-container .swiper-prev {
-	background:
-		url('https://cdn.hddfs.com/front/images/KO/common/icon_controller.png')
-		0 -32px no-repeat;
-	width: 9px;
-	height: 13px;
-	position: absolute;
-	bottom: 33px;
-	left: 94px;
-	z-index: 100
-}
-
-.popswiper-container .swiper-next {
-	background:
-		url('https://cdn.hddfs.com/front/images/KO/common/icon_controller.png')
-		-9px -32px no-repeat;
-	width: 9px;
-	height: 13px;
-	position: absolute;
-	bottom: 33px;
-	left: 112px;
-	z-index: 100
-}
-
-.ui-dialog.ui-widget.ui-widget-content.layer_newtype {
-	background: #fff;
-	border-radius: 20px
-}
-
-.ui-dialog.layer_newtype .ui-dialog-titlebar {
-	display: none
-}
-</style>
-
-	<script type="text/javascript">
-  
-// 팝업 닫기
-function closeMainLayer(popSeq){
-	$("#main_bottom_pop"+popSeq).remove();
-	if($(".main_popup").length <1){
-		$('.modal_wrap').removeClass('active');
-	}
-}
-
-// 메인레이어팝업 오늘하루 보지않기 + 쿠키저장
-function saveMainLayerCookie(popSeq){
-	
-	// 쿠키 저장
-	if($("#btn_hidden_layer_"+popSeq).attr("hiddenYn") == 'N'){
-		var date = new Date();
-		date.setTime(date.getTime() + (1000 * 60 * 60 * 24));
-		date.setHours(0);
-		date.setMinutes(0);
-		date.setSeconds(0);
-		$.cookie("closePop" + popSeq, "Y", { expires: date, path : "/" });
-		$("#main_bottom_pop"+popSeq).remove();
-		if($(".main_popup").length <1){
-			$('.modal_wrap').removeClass('active');
-		}
-	}
-}
-
-function callMainPopSwiper(){
-	
-	var mainpopupswiper = new Swiper('.popswiper-container', {
-		slidesPerView: "auto",
-		observer:true,
-		observeParents:true,
-		pagination:{
-			el: '.swiper-pagination',
-			type: 'custom',
-			renderCustom: function (mainpopupswiper, current, total) {
-				var customPaginationHtml = "";
-				for(var i = 0; i < total; i++) {
-				if(i == (current - 1)) {
-					customPaginationHtml += '<span class="visual-pagination-customs visual-pagination-customs-active"></span>';
-				}else{
-					customPaginationHtml += '<span class="visual-pagination-customs"></span>';
-				}
-				}
-				if(total < 10){
-				total = "0" + total
-				}
-				if(current < 10){
-				current = "0" + current
-				}
-				var fraction =  current + '<span class="space">/</span>'  + '<span class="num_total">'+total+'</span>';
-				return  fraction;
-			},
-		},
-		navigation: {
-			nextEl: '.swiper-next',
-			prevEl: '.swiper-prev',
-		},
-	});
-}
-</script>
 	<div class="modal_wrap mainPopWrap"></div>
 	<!-- 공통 팝업 정의 ENd -->
 	<div class="layer_unit pop_o8_adult" style="display: none">

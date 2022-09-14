@@ -12,7 +12,7 @@ public class Logout implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session=request.getSession();
-		session.removeAttribute("member");
+		session.removeAttribute("memId");
 		String url="/DutyfreeServlet?command=index";
 		
 		request.getRequestDispatcher(url).forward(request,response);
