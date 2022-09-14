@@ -195,7 +195,7 @@
 	// HDDFS 리뉴얼 프로젝트 [고영주] - 트래킹코드
 	
 </script>
-		
+
 
 		<!-- container -->
 		<main id="container">
@@ -871,85 +871,44 @@ function fn_onlnEltRcpt(orderNo, billNo){
 					<div class="myhd_firinfo">
 						<div class="myinfo">
 							<p class="name">
-								<strong> 김*선</strong> <em>님</em>
+								<strong> 이름 넣기</strong> <em>님</em>
 							</p>
-							<p class="passinfo">
-								<span>M978*****</span> <span>2026-11-01</span>
-							</p>
-							<div class="mylv">
+						
+							<div class="mylv" style = "padding-top: 10px;">
 								<span class="lv_on_up001"></span> <span class="lv_off_up002"></span>
 							</div>
 						</div>
 						<div class="mypresent">
-							<dl>
-								<a href="https://www.hddfs.com/shop/mm/myBnf/listSvmt.do">
-									<dt>적립금</dt>
-									<dd id="svmtAmt">
-										<strong>0</strong>원
-									</dd>
+							<dl style="height: 200px; padding-top: 80px;">
+								<a href="주문내역">
+									<dt style="font-size: 20px;">주문내역</dt>
 								</a>
 							</dl>
-							<dl>
-								<a href="https://www.hddfs.com/shop/mm/myBnf/listCup.do">
-									<dt>쿠폰</dt>
-									<dd>
-										<strong>0</strong>장
-									</dd>
+							<dl style="height: 200px; padding-top: 80px;">
+								<a href="/mm/myCont/listCounQustBbs.do">
+									<dt style="font-size: 20px;">문의내역</dt>
 								</a>
 							</dl>
-							<dl>
-								<a href="https://www.hddfs.com/shop/mm/myBnf/listGfca.do">
-									<dt>예치금</dt>
-									<dd id="mainCdpst">
-										<strong>0</strong>원
-									</dd>
+							<dl style="height: 200px; padding-top: 80px;">
+								<a href="/mm/myInfo/inptMbshPwd.do?type=base">
+									<dt style="font-size: 20px;">기본정보관리</dt>
 								</a>
 							</dl>
-							<dl>
-								<a
-									href="https://www.hddfs.com/shop/mm/myBnf/listGfca.do?gfcaClsType=GFCA">
-									<dt>상품권 전환금</dt>
-									<dd>
-										<strong>0</strong>원
-									</dd>
+							<dl style="height: 200px; padding-top: 80px;">
+								<a href="/mm/myInfo/inptMbshPwd.do?type=pspt">
+									<dt style="font-size: 20px;">여권정보관리</dt>
 								</a>
 							</dl>
-							<dl>
-								<dt>H.Point</dt>
-								<dd id="hpointAmt">
-									<strong>0</strong>P
-								</dd>
-							</dl>
-							<dl>
-								<dt>H.Point Plus 포인트</dt>
-								<dd>
-									<a href="https://www.h-point.co.kr/cu/main/index.nhd">조회</a>
-								</dd>
-							</dl>
-							<dl>
-								<dt>구매금액</dt>
-								<dd id="setTotBuyAmtNtnl">
-									<strong>$0</strong>
-								</dd>
-							</dl>
-							<dl>
-								<a href="https://www.hddfs.com/shop/om/consmCont/mbshLvlInfo.do">
-									<dt>승급잔여금액</dt>
-									<dd id="setRestPrice">
-										<strong>$0</strong>
-									</dd>
+							<dl style="height: 200px; padding-top: 80px;">
+								<a href="">
+									<dt style="font-size: 20px;">출국정보관리</dt>
 								</a>
-							</dl>
-							<dl>&nbsp;
-							</dl>
-							<dl>&nbsp;
 							</dl>
 						</div>
 					</div>
-					
-					</div>
-				</article>
-				<script type="text/javascript">
+	</div>
+	</article>
+	<script type="text/javascript">
 
 $(document).ready(function(evt){
     getSvmtAmtAble();
@@ -1127,24 +1086,20 @@ $(function(){
 	});
 });
 </script>
-				<article id="content">
-					<section class="myhd_content">
+	<article id="content">
+		<section class="myhd_content" style ="padding-top: 0px;">
 
-						<div class="tab-action">
-							<ul class="tab_2depth tab_center">
+			<div class="tab-action">
+				<div class ="ui-tab tab_center " style ="font-size: 30px; font-weight: 700; text-decoration: underline; text-underline-position:under;text-decoration-thickness: 3px;">주문일 기준</div>
 
-								<li class="ui-tab" id="tabCtgOrderType" value="order"><a
-									onclick="fn_search('order');" href="#date_order">주문일 기준</a></li>
-							</ul>
 
-							<form id="mainForm" name="mainForm" method="get">
-								<input type="hidden" name="srchStdCd" id="srchStdCd"
-									value="order"> <input type="hidden" name="tabType"
-									id="tabType" value="onln"> <input type="hidden"
-									name="page" id="page" value="1"> <input type="hidden"
-									name="totalPage" id="totalPage" value="1">
+				<form id="mainForm" name="mainForm" method="get">
+					<input type="hidden" name="srchStdCd" id="srchStdCd" value="order">
+					<input type="hidden" name="tabType" id="tabType" value="onln">
+					<input type="hidden" name="page" id="page" value="1"> <input
+						type="hidden" name="totalPage" id="totalPage" value="1">
 
-								<script> 
+					<script> 
 $(document).ready(function(){
 	
 	//최초 페이지 접근시(날짜조건 빈값일경우) - 온라인/출국일기준
@@ -1342,147 +1297,139 @@ function isValidDate(d) {
 }
 
 </script>
-								<input type="hidden" name="monVal" id="monVal" value="" />
-								<div class="period">
-									<div class="period_cover">
-										<ul class="textbox monthbox">
-											<li><a nohref onclick="fnDateSetting(this,'1');"
-												id="dtSrchFirstTab">1개월</a></li>
-											<li><a nohref onclick="fnDateSetting(this,'3');">3개월</a></li>
-											<li><a nohref onclick="fnDateSetting(this,'6');">6개월</a></li>
-											<li><a nohref onclick="fnDateSetting(this,12);">12개월</a></li>
-										</ul>
-										<div class="datebox">
-											<span class="datepicker_box"> <input type="text"
-												id="stDt" name="stDt" onkeyup="isNumber(this);"
-												class="datepicker" value="" maxlength="10"
-												placeholder="0000-00-00">
-											</span> <span class="from">~</span> <span class="datepicker_box">
-												<input type="text" id="endDt" name="endDt"
-												onkeyup="isNumber(this);" class="datepicker" value=""
-												maxlength="10" placeholder="0000-00-00">
-											</span>
+					<input type="hidden" name="monVal" id="monVal" value="" />
+					<div class="period">
+						<div class="period_cover">
+							<ul class="textbox monthbox">
+								<li><a nohref onclick="fnDateSetting(this,'1');"
+									id="dtSrchFirstTab">1개월</a></li>
+								<li><a nohref onclick="fnDateSetting(this,'3');">3개월</a></li>
+								<li><a nohref onclick="fnDateSetting(this,'6');">6개월</a></li>
+								<li><a nohref onclick="fnDateSetting(this,12);">12개월</a></li>
+							</ul>
+							<div class="datebox">
+								<span class="datepicker_box"> <input type="text"
+									id="stDt" name="stDt" onkeyup="isNumber(this);"
+									class="datepicker" value="" maxlength="10"
+									placeholder="0000-00-00">
+								</span> <span class="from">~</span> <span class="datepicker_box">
+									<input type="text" id="endDt" name="endDt"
+									onkeyup="isNumber(this);" class="datepicker" value=""
+									maxlength="10" placeholder="0000-00-00">
+								</span>
+							</div>
+							<button type="button" class="btnde_type1 mid dcheck_btn"
+								onclick="fnValidation();">조회</button>
+						</div>
+					</div>
+
+
+
+
+					<div id="my_order">
+						<div class="cart_list" id="onln_list">
+							<div id="dpatDiv">
+								<div id="date_departure">
+									<div class="sorting_wrap myhd"">
+										<span class="txt_total">총 <strong>1</strong>개
+										</span>
+										<div class="sort_r">
+											<select name="billStat" id="billStat1">
+												<option value="">전체</option>
+												<option value="010">최신순</option>
+												<option value="020">오래된순</option>
+												<option value="030^040">금액 높은순</option>
+												<option value="050">금액 낮은순</option>
+							
+											</select>
 										</div>
-										<button type="button" class="btnde_type1 mid dcheck_btn"
-											onclick="fnValidation();">조회</button>
+									</div>
+									<div class="list_table01">
+										<table>
+											<colgroup>
+												<col width="108px">
+												<col width="100%">
+												<col width="140px">
+												<col width="298px">
+												<col width="55px">
+												<col width="156px">
+												<col width="106px">
+											</colgroup>
+											<tbody id="onlnDpatList_cart">
+												<tr>
+													<th>주문일자</th>
+													<th>주문번호</th>
+													<th>이미지</th>
+													<th>상품명</th>
+													<th>수량</th>
+													<th>결제금액</th>
+													<th>주문상태</th>
+												</tr>
+												<tr id="onlnDpatList_add">
+
+													<td rowspan="0">2022-09-08</td>
+													<td><a
+														href="//www.hddfs.com/shop/mm/myOrder/dtlOrder.do?orderNo=OR2022090800194"
+														class="order_number numshort">OR2022090800194</a></td>
+
+													<td>
+														<div class="product_info" style ="padding-left:35px;">
+															<span class="on_img"> <img
+																src="https://cdn.hddfs.com/files/goos/0073/20220422/70852e7b.png?sf=webp&RS=60X60"
+																alt="키엘 클리어리 코렉티브 다크 스팟 솔루션 115ML"
+																onerror="this.onerror=null; this.src='https://cdn.hddfs.com/front/images/KO/common/no_img252.jpg';">
+															</span>
+													</td>
+													<td>
+															<dl>
+																<dt>키엘</dt>
+																<dd>키엘 클리어리 코렉티브 다크 스팟 솔루션 115ML</dd>
+																
+															</dl>
+														</div>
+													</td>
+													<td>0</td>
+													<td><del class="delprice">$0</del>
+														<p class="dollar">$0</p>
+														<p class="k_won">
+															0<span>원</span>
+														</p></td>
+													<td>취소완료</td>
+												</tr>
+											</tbody>
+										</table>
 									</div>
 								</div>
-
-
-
-
-								<div id="my_order">
-									<div class="cart_list" id="onln_list">
-										<div id="dpatDiv">
-											<div id="date_departure">
-												<div class="sorting_wrap myhd"">
-													<span class="txt_total">총 <strong>1</strong>개
-													</span>
-													<div class="sort_r">
-														<select name="billStat" id="billStat1">
-															<option value="">전체</option>
-															<option value="010">입금대기</option>
-															<option value="020">주문완료</option>
-															<option value="030^040">상품준비중</option>
-															<option value="050">인도대기</option>
-															<option value="065">인도완료</option>
-															<option value="060">미인도</option>
-															<option value="080">취소신청</option>
-															<option value="070">반품신청</option>
-															<option value="100">취소완료</option>
-															<option value="090">반품완료</option>
-														</select>
-													</div>
-												</div>
-												<div class="list_table01">
-													<table>
-														<colgroup>
-															<col width="108px">
-															<col width="100%">
-															<col width="140px">
-															<col width="298px">
-															<col width="55px">
-															<col width="156px">
-															<col width="106px">
-														</colgroup>
-														<tbody id="onlnDpatList_cart">
-															<tr>
-																<th>주문일자</th>
-																<th>주문번호</th>
-															
-																<th>상품명</th>
-																<th>수량</th>
-																<th>결제금액</th>
-																<th>주문상태</th>
-															</tr>
-															<tr id="onlnDpatList_add">
-
-																<td rowspan="0">2022-09-08
-																</td>
-																<td>
-																<a
-																	href="//www.hddfs.com/shop/mm/myOrder/dtlOrder.do?orderNo=OR2022090800194"
-																	class="order_number numshort">OR2022090800194</a>
-																</td>
-
-																
-																<td>
-																	<div class="product_info">
-																		<span class="on_img"> <img
-																			src="https://cdn.hddfs.com/files/goos/0073/20220422/70852e7b.png?sf=webp&RS=60X60"
-																			alt="키엘 클리어리 코렉티브 다크 스팟 솔루션 115ML"
-																			onerror="this.onerror=null; this.src='https://cdn.hddfs.com/front/images/KO/common/no_img252.jpg';">
-																		</span>
-																		<dl>
-																			<dt>키엘</dt>
-																			<dd>키엘 클리어리 코렉티브 다크 스팟 솔루션 115ML</dd>
-																			<dd>SKU NO :</dd>
-																		</dl>
-																	</div>
-																</td>
-																<td>0</td>
-																<td><del class="delprice">$0</del>
-																	<p class="dollar">$0</p>
-																	<p class="k_won">
-																		0<span>원</span>
-																	</p></td>
-																<td>취소완료</td>
-															</tr>
-														</tbody>
-													</table>
-												</div>
-											</div>
-										</div>
-
-
-									</div>
-							</form>
-						</div>
-						<div class="attention_area">
-							<p class="attention_tit">유의사항</p>
-							<div class="attention_list">
-								&bull; 결제 완료 후 주문 내역에서 구매하신 상품이 확인되지 않을 경우 로그아웃 후 재로그인 해주시기
-								바랍니다.<br /> &nbsp;&nbsp;<br /> &bull; 아래의 경우 인도장에서 상품 수령이
-								제한되오니 반드시 확인해 주시기 바랍니다.<br /> - 주문하신 고객님과 출국하시는 고객님의 정보가 불일치 할
-								경우<br /> - 주문서에 기재된 여권번호와 출국 시 여권번호가 불일치 할 경우<br /> - 등록된
-								출국정보(출국장소, 출국일시, 편명 등)와 실 출국정보가 다른 경우<br /> <br /> &bull; 출국
-								정보 변경을 원하실 경우, 출국일 최소 3일 전에 고객센터로 연락해 주시기 바랍니다.(단, 지방공항 이용 시
-								4일전)<br /> &bull; 출국 시 인도받지 못한 물건은 고객센터로 연락 바랍니다.<br />
-								&bull;&nbsp;화장품/식품等 유통기한과 연관있는 상품의 경우 출국정보 변경 시 유통기한이 임박 또는 초과된
-								상품을 받을 수 있으므로 유의하시기 바랍니다.<br /> &bull; 추가 궁금하신 내용은 고객센터
-								(1811-6688 / 운영시간 09:30~18:30) 로 문의바랍니다. <a
-									href="https://www.hddfs.com/shop/om/consmComm/faq.do"
-									class="link_txt_point">FAQ 바로가기</a>
 							</div>
+
+
 						</div>
-						<div id="printCoup"></div>
-						<div id="oflnEltRcpt"></div>
-						<div id="onlnEltRcpt"></div>
-					</section>
-				</article>
-			</main>
-			<!-- // container -->
-			<script type="text/javascript">
+				</form>
+			</div>
+			<div class="attention_area">
+				<p class="attention_tit">유의사항</p>
+				<div class="attention_list">
+					&bull; 결제 완료 후 주문 내역에서 구매하신 상품이 확인되지 않을 경우 로그아웃 후 재로그인 해주시기 바랍니다.<br />
+					&nbsp;&nbsp;<br /> &bull; 아래의 경우 인도장에서 상품 수령이 제한되오니 반드시 확인해 주시기
+					바랍니다.<br /> - 주문하신 고객님과 출국하시는 고객님의 정보가 불일치 할 경우<br /> - 주문서에 기재된
+					여권번호와 출국 시 여권번호가 불일치 할 경우<br /> - 등록된 출국정보(출국장소, 출국일시, 편명 등)와 실
+					출국정보가 다른 경우<br /> <br /> &bull; 출국 정보 변경을 원하실 경우, 출국일 최소 3일 전에
+					고객센터로 연락해 주시기 바랍니다.(단, 지방공항 이용 시 4일전)<br /> &bull; 출국 시 인도받지 못한
+					물건은 고객센터로 연락 바랍니다.<br /> &bull;&nbsp;화장품/식품等 유통기한과 연관있는 상품의 경우
+					출국정보 변경 시 유통기한이 임박 또는 초과된 상품을 받을 수 있으므로 유의하시기 바랍니다.<br /> &bull;
+					추가 궁금하신 내용은 고객센터 (1811-6688 / 운영시간 09:30~18:30) 로 문의바랍니다. <a
+						href="https://www.hddfs.com/shop/om/consmComm/faq.do"
+						class="link_txt_point">FAQ 바로가기</a>
+				</div>
+			</div>
+			<div id="printCoup"></div>
+			<div id="oflnEltRcpt"></div>
+			<div id="onlnEltRcpt"></div>
+		</section>
+	</article>
+	</main>
+	<!-- // container -->
+	<script type="text/javascript">
 	function sellerInfo(){
 	    $("#seller_information").dialog("open");
 	}
@@ -1500,7 +1447,7 @@ function isValidDate(d) {
 		location.href = ctx_shop + '/dm/main.do';
 	}
 </script>
-<%@include file="../include/footer.jsp"%>
+	<%@include file="../include/footer.jsp"%>
 
 	<div class="modal_wrap mainPopWrap"></div>
 	<!-- 공통 팝업 정의 ENd -->

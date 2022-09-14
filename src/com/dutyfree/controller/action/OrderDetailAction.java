@@ -7,11 +7,11 @@ import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-//import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpSession;
 
-import com.dutyfree.controller.action.Action;
 import com.dutyfree.dao.OrderDAO;
-import com.dutyfree.dto.OrderVO;;
+import com.dutyfree.dto.OrderVO;
+import com.dutyfree.dto.MemberVO;
 
 
 public class OrderDetailAction implements Action {
@@ -20,18 +20,16 @@ public class OrderDetailAction implements Action {
   public void execute(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
     String url = "order/MyHD_orderlist.jsp";
-//    
-//    HttpSession session = request.getSession();
-//    MemberVO loginUser = (MemberVO) session.getAttribute("loginUser");
-//    if (loginUser == null) {
-//      url = "";
-//    } else {
-//      int oseq=Integer.parseInt(request.getParameter("oseq"));
-//      ArrayList<OrderVO> orderList = orderDAO.listOrderById(loginUser.getId(), "%", oseq);
-//      
+    
+    HttpSession session = request.getSession();
+    MemberVO member = (MemberVO) session.getAttribute("member");
+    if (member == null) {
+      url = "DutyfreeServlet?command=login_form";
+    } else {
       OrderDAO orderDAO = OrderDAO.getInstance();
-      ArrayList<OrderVO> orderList = orderDAO.listOrder();
-      
+      int oseq=Integer.parseInt(request.getParameter("oseq"));
+      ArrayList<OrderVO> orderList = orderDAO.listOrderById(member.getMemId(), "%", oseq);
+
       int totalPrice=0;
       for(OrderVO ovo :orderList){
         totalPrice+=ovo.getpPrice()*ovo.getOdAmount();
@@ -42,7 +40,7 @@ public class OrderDetailAction implements Action {
       request.setAttribute("totalPrice", totalPrice);
       
       System.out.println(orderList);
-//    }
+  }
     request.getRequestDispatcher(url).forward(request, response);
   }    
 }

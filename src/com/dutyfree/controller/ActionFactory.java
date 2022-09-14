@@ -88,8 +88,6 @@ public class ActionFactory {
 		}else if(command.equals("delete_form")) {
 			action=new delete_form();
 		}
-
-		
 		
 		return action;
 		
