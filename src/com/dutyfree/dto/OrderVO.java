@@ -114,4 +114,3 @@ public class OrderVO {
 				+ ", oShipping=" + oShipping + "]";
 	}
 
-}

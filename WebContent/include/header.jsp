@@ -2,7 +2,7 @@
   pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  
-
+<!-- 0914 박진수 추가 -->
 <%
 String memId=(String)session.getAttribute("memId");
 %>  
@@ -579,7 +579,7 @@ String memId=(String)session.getAttribute("memId");
     }
 </script><!-- 검색 레이어 영역 END-->
 	    <div class="default_menu">
-	    <!-- 진수 수정 -->
+	    <!-- 0914 박진수 수정 -->
 	      <% if(memId == null){ %> 
 	    	<a class="menu_login_join" href="DutyfreeServlet?command=login_form" id="loginBtn">로그인</a>
 	    			<a class="menu_login_join" href="회원가입 링크">회원가입</a>	
@@ -606,7 +606,7 @@ String memId=(String)session.getAttribute("memId");
 	            </li>
 	            <li class="exchange_rate exchageRateTxt"></li>
 	        </ul>
-	        <%} %>  
+	        <% } %>  
 	    </div>
 	    <!-- 히든메뉴 START -->
 	    <script type="text/javascript">
