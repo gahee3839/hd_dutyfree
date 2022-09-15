@@ -1,3 +1,4 @@
+
 package com.dutyfree.dao;
 
 import java.sql.CallableStatement;
@@ -6,9 +7,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-//import com.dutyfree.dto.CartVO;
 import com.dutyfree.dto.OrderVO;
 import com.dutyfree.util.DBConnection;
+//import com.dutyfree.dto.CartVO;
 
 import oracle.jdbc.OracleTypes;
 
@@ -24,7 +25,7 @@ public class OrderDAO {
 	public static OrderDAO getInstance() {
 		return instance;
 	}
-//
+
 //	// 사용자가 주문
 //	public int insertOrder(ArrayList<CartVO> cartList, String id) {
 //		int maxOseq = 0;
@@ -87,20 +88,22 @@ public class OrderDAO {
 //			DBConnection.close(conn, pstmt);
 //		}
 //	}
-
-	//0913 김민선
+//
+	//0914 김민선 추가
 	// 사용자가 주문 내역 검색
-	public ArrayList<OrderVO> listOrderById(String id, String result, int oseq) {
+	public ArrayList<OrderVO> listOrderById(String m_id, String result, int od_no) {
 		ArrayList<OrderVO> orderList = new ArrayList<OrderVO>();
-		String sql = "{call orderList(?)}";
-
+		
+		String sql = "{call selectAllOrder(?)}";
+		
+//		Connection conn = null;
+//		CallableStatement cstmt = null;
 		ResultSet rs = null;
 		try {
 			conn = DBConnection.getConnection();
 			cstmt = conn.prepareCall(sql);
-			cstmt.registerOutParameter(1, OracleTypes.CURSOR);
-			cstmt.executeUpdate();
-			rs = (ResultSet)cstmt.getObject(1);
+			cstmt.setString(1, m_id);
+			rs = cstmt.executeQuery();
 			while (rs.next()) {
 				OrderVO vo = new OrderVO();
 				vo.setoNo(rs.getInt("o_no"));
@@ -116,10 +119,11 @@ public class OrderDAO {
 				vo.setmId(rs.getString("m_id"));
 				orderList.add(vo);
 				System.out.println(vo);
+				
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
+		} 
 		return orderList;
 	}
 
@@ -133,7 +137,7 @@ public class OrderDAO {
 //		ResultSet rs = null;
 //
 //		try {
-//			con = DBManager.getConnection();
+//			con = DBConnection.getConnection();
 //			pstmt = con.prepareStatement(sql);
 //			pstmt.setString(1, id);
 //			rs = pstmt.executeQuery();
@@ -142,7 +146,9 @@ public class OrderDAO {
 //			}
 //		} catch (Exception e) {
 //			e.printStackTrace();
-//		} 
+//		} finally {
+//			DBConnection.close(con, pstmt, rs);
+//		}
 //		return oseqList;
 //	}
 
@@ -196,5 +202,4 @@ public class OrderDAO {
 	 */
 
 }
-
 
