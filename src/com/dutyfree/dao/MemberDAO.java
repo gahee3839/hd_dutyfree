@@ -5,6 +5,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+import org.apache.catalina.valves.JDBCAccessLogValve;
+
 import com.dutyfree.dto.MemberVO;
 import com.dutyfree.util.DBConnection;
 import com.dutyfree.util.JDBCUtil;
@@ -185,6 +187,27 @@ public class MemberDAO {
 				JDBCUtil.close(cstmt);
 				JDBCUtil.close(conn);
 			}
+			return result;
+		}
+		
+		public String FindPw(String memId,String memPhone) {
+			String result="";
+			try {
+				conn=DBConnection.getConnection();
+				sql= "{? = call FindPw(?,?)}";
+				cstmt=conn.prepareCall(sql);
+				cstmt.registerOutParameter(1, OracleTypes.VARCHAR);
+				cstmt.setString(2, memId);
+				cstmt.setString(3, memPhone);
+				cstmt.executeUpdate();
+				result=cstmt.getString(1);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}finally {
+				JDBCUtil.close(cstmt);
+				JDBCUtil.close(conn);
+			}
+			
 			return result;
 		}
 	

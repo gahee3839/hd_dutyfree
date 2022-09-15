@@ -66,7 +66,10 @@ public class ActionFactory {
 			action=new FindId_page();
 		}else if(command.equals("FindPw_Page")) {
 			action=new FindPw_page();
-		}else if(command.equals("Update_page")) {
+		}else if(command.equals("FindPW")) {
+			action=new FindPw();
+		}
+		else if(command.equals("Update_page")) {
 			action=new Update_page();
 		}else if(command.equals("delete_form")) {
 			action=new delete_form();

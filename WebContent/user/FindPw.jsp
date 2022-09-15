@@ -1,6 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%
+	   String pw=(String)request.getAttribute("pw");
+	   if (pw!=null){
+%>
+	    <script language='javascript'>
+	    alert('비밀번호는'+pw);
+	    location.href="../DutyfreeServlet?command=index";
+	    </script>
+<%
+} 
+%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -1632,19 +1642,26 @@ function getHiddenMenuEvntBnef(evntId){
 	    </nav>
 	</header><!-- // header -->
 	    <!-- container -->
+
 		<main id="container"  class="container">
 			<script type="text/javascript">
 $(function(){
 	// 확인 버튼
-    $('#btnConfirm', '#frmMbshFindPwd').click(function() {
-    	if($('#mbshId', '#frmMbshFindPwd').val() == '') {
+    $('#btnConfirm', '#FindPw').click(function() {
+    	if($('#memId', '#FindPw').val() == '') {
             $('.t_error', '#divId').show().text('아이디를 입력해주세요.');
-            $('#mbshId', '#frmMbshFindPwd').focus();
+            $('#memId', '#FindPw').focus();
             return ;
         }
     	$('.t_error', '#divId').hide();
-
-    	$.ajax({
+    	if($('#memPhone', '#FindPw').val() == '') {
+            $('.t_error', '#divPhone').show().text('휴대폰번호를 입력해주세요.');
+            $('#memPhone', '#FindPw').focus();
+            return ;
+        }
+    	$('.t_error', '#divPhone').hide();
+    	$('FindPw').submit();
+    	/* $.ajax({
             url: ctx_curr + '/mm/mbshAuca/selectMbshInfo.json',
             method: 'post',
             data: $('#frmMbshFindPwd').serialize(),
@@ -1664,7 +1681,7 @@ $(function(){
             error : function(jqXHR, textStatus, errorThrown) {
                 alert('처리중 오류가 발생하였습니다.');
             }
-        });
+        }); */
     });
 
     // 엔터키처리
@@ -1681,19 +1698,19 @@ $(function(){
             <div class="join_wrap">
                 <h2 class="h2_type">비밀번호 찾기</h2>
                 <!-- <p class="f_size01 mgtm">아이디를 입력하시면 비밀번호 찾기를 하실 수 있습니다.</p> -->
-                <form id="frmMbshFindPwd" name="frmMbshFindPwd" method="post" action="//www.hddfs.com/shop/mm/mbshAuca/membershipFindPwdAuth.do">
+                <form id="FindPw" name="FindPw" method="post" action="DutyfreeServlet?command=FindPw">
                 <div class="join_form mgtm">
                     <div class="join_row with_btn" id="divId">
                         <input type="text" id="memId" name="memId" placeholder="아이디" maxlength="20">
                         
                         <p class="t_error" style="display:none;"></p>
                     </div>
-                    <div class="join_row with_btn" id="divName">
-                    <input type="text" id="memName" name="memName" placeholder="이름" maxlength="20">
+                    <div class="join_row with_btn" id="divPhone">
+                    <input type="text" id="memPhone" name="memPhone" placeholder="휴대폰번호" maxlength="20">
                 	</div>
                 </div>
                 <div class="basic_btn_box mgtml">
-                    <button type="button" class="btn_basic2" id="btnConfirm">확인</button>
+                    <button type="submit" class="btn_basic2" id="btnConfirm">확인</button>
                 </div>
                 </form>
             </div>

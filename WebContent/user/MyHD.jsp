@@ -66,7 +66,7 @@ $(function(){
                 <section class="box">
                     <a nohref onclick="goUrl('/dm/main.do');" class="home">홈</a>
                     <div>
-                    	<span>마이현대</span>
+                    	<span>마이페이지</span>
                     </div>
                     <div>
                     	<span>기본정보관리</span>
@@ -188,70 +188,7 @@ $(function(){
 					</tbody>
 				</table>
 				</form>
-				<form id="frmMbshPsptMnge" name="frmMbshPsptMnge" method="post" action="">
-				<div class="cont_stit por">
-				<h3>여권 정보</h3>
-				</div>
-				<div class="info_table input_passport">
-				<table>
-				<colgroup>
-				<col style="width:150px">
-				<col style="width:390px">
-				<col style="width:155px">
-				<col style="width:auto">
-				</colgroup>
-				<tbody>
-				<tr>
-					<th>
-					Last Name 성
-					<span class="star_red">*</span>
-					</th>
-					<td class="td_pd" id="divPsptLast">
-					<span class="input_de">
-					<input type="text" id="mbshEngLstnm" name="mbshEngLstnm" placeholder="영문 성을 공백없이 입력해주세요">
-					</span>
-					<p class="t_error2" style="display:none;"></p>
-					</td>
-					<th>
-					First Name 이름
-					<span class="star_red">*</span>
-					</th>
-					<td class="td_pd" id="divPsptFirst">
-					<span class="input_de">
-					<input type="text" id="mbshEngFstnm" name="mbshEngFstnm" placeholder="영문 이름을 공백없이 입력해주세요">
-					<p class="t_error2" style="display:none;"></p>
-					</span>
-					</td>
-					</tr>
-					<tr>
-					<th>
-					여권번호
-					<span class="star_red">*</span>
-					</th>
-					<td class="td_pd" id="divPsptNo">
-					<span class="input_de">
-					<input type="text" id="psptNo" name="psptNo" placeholder="여권번호를 입력해주세요">
-					</span>
-					<p class="t_error2" style="display:none;"></p>
-					</td>
-					<th>
-					여권만료일
-					<span class="star_red">*</span>
-					</th>
-					<td class="td_pd" id="divPsptDate">
-					<span class="input_de datepicker_box">
-					<input type="text" class="datepicker hasDatepicker" placeholder="YYYY-MM-DD" id="psptExpiDt" name="psptExpiDt" maxlength="10">
-					</span>
-					</td>
-					</tr>
-				</tbody>
-				</table>
-				</div>
-				<div class="btn_area mt40">
-				<a href=""  class="btnxl_type2 type2" id="btnConfirm">취소</a>
-				<a href=""  class="btnxl_type2 type2 bg_black" id="btnConfirm">확인</a>
-				</div>
-			</form>
+				
 				
 		</div>
 	</section>

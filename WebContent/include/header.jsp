@@ -584,8 +584,7 @@ String memId=(String)session.getAttribute("memId");
 	    	<a class="menu_login_join" href="DutyfreeServlet?command=login_form" id="loginBtn">로그인</a>
 	    			<a class="menu_login_join" href="회원가입 링크">회원가입</a>	
 	    		<%}else{ %> 
-	    		<a class="menu_login_join" id="logoutBtn" href="DutyfreeServlet?command=Logout">로그아웃</a>
-	    		<a class="menu_login_join" href="DutyfreeServlet?command=Update_page">마이페이지</a>	
+	    		<a class="menu_login_join" id="logoutBtn" href="DutyfreeServlet?command=Logout">로그아웃</a>	
 	    		
 
 	    		<ul>
@@ -596,7 +595,7 @@ String memId=(String)session.getAttribute("memId");
 	                <a href="DutyfreeServlet?command=order_detail"><strong>주문<br>조회</strong></a>
 	            </li>
 	            <li class="item_03">
-	                <a href="마이페이지 링크"><strong>마이<br>현대</strong></a>
+	                <a href="DutyfreeServlet?command=Update_page"><strong>마이<br>페이지</strong></a>
 	            </li>
 	            <li class="item_04">
 	                <a href="고객센터 링크"><strong>고객<br>센터</strong></a>
