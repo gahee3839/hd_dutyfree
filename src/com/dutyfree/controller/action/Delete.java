@@ -5,11 +5,21 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class delete_form implements Action {
+import com.dutyfree.dao.MemberDAO;
+
+public class Delete implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String url="/user/delete_form.jsp";
+		MemberDAO dao= MemberDAO.getInstance();
+		int result=dao.deleteMember(request.getParameter("memId"));
+		
+		if(result==1) {
+			request.setAttribute("success", "success");
+		}else {
+			request.setAttribute("fail", "fail");
+		}
+		String url="DutyfreeServlet?command=index";
 		request.getRequestDispatcher(url).forward(request,response);
 
 	}
