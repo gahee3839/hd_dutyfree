@@ -1,25 +1,9 @@
 // 22/09/08 김가희 생성
 package com.dutyfree.controller;
 
-import com.dutyfree.admin.controller.action.AdminCsListAction;
-import com.dutyfree.admin.controller.action.AdminMainAction;
-import com.dutyfree.admin.controller.action.AdminMemberListAction;
-import com.dutyfree.admin.controller.action.AdminOrderListAction;
-import com.dutyfree.admin.controller.action.AdminProductListAction;
-import com.dutyfree.controller.action.OrderDetailAction;
-import com.dutyfree.controller.action.Action;
-import com.dutyfree.controller.action.CsListAction;
-import com.dutyfree.controller.action.CsViewAction;
-import com.dutyfree.controller.action.CsWriteAction;
-import com.dutyfree.controller.action.CsWriteFormAction;
-import com.dutyfree.controller.action.FindId_page;
-import com.dutyfree.controller.action.FindPw_page;
-import com.dutyfree.controller.action.LoginForm;
-import com.dutyfree.controller.action.LoginMember;
-import com.dutyfree.controller.action.Logout;
-import com.dutyfree.controller.action.Update_page;
-import com.dutyfree.controller.action.delete_form;
-import com.dutyfree.controller.action.indexAction;
+
+import com.dutyfree.admin.controller.action.*;
+import com.dutyfree.controller.action.*;
 
 public class ActionFactory {
 	private static ActionFactory instance = new ActionFactory();
@@ -71,9 +55,8 @@ public class ActionFactory {
 		// 0913 박진수
 		//로그인
 		if(command.equals("index")) {
-			action=new indexAction();
-		}
-		if(command.equals("login")) {
+			action=new IndexAction();
+		}else if(command.equals("login")) {
 			action=new LoginMember();
 		}else if(command.equals("login_form")) {
 			action=new LoginForm();
@@ -97,3 +80,4 @@ public class ActionFactory {
 	}
 
 }
+
