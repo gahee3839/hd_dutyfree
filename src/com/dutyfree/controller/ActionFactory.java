@@ -68,8 +68,11 @@ public class ActionFactory {
 			action=new FindPw_page();
 		}else if(command.equals("Update_page")) {
 			action=new Update_page();
-		}else if(command.equals("delete_form")) {
-			action=new delete_form();
+		}else if(command.equals("Update")) {
+			action=new Update();
+		}
+		else if(command.equals("Delete")) {
+			action=new Delete();
 		}
 		
 		// 0915 김나형 추가

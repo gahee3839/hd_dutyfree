@@ -50,7 +50,7 @@ public class MemberDAO {
 		return result;
 	}
 
-	// 멤버 수정
+	// 0914 박진수 멤버 수정
 	public int updateMember(MemberVO member) {
 		try {
 			sql = "{call update_member(?,?,?,?,?,?,?)}";
@@ -74,18 +74,20 @@ public class MemberDAO {
 
 	// 멤버 삭제
 	public int deleteMember(String memId) {
+		int res=0;
 		try {
 			sql = "{exec  패키지명.프로시져}";
 			cstmt = conn.prepareCall(sql);
 			cstmt.setString(1, memId);
 			result = cstmt.executeUpdate();
+			res=1;
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			JDBCUtil.close(cstmt);
 			JDBCUtil.close(conn);
 		}
-		return 1;
+		return res;
 	}
 
 	// 22/09/12 김가희추가
@@ -126,7 +128,7 @@ public class MemberDAO {
 
 		return memList;
 	}
-	//사용자에 대한 정보 불러오기
+	// 0914 박진수 사용자에 대한 정보 불러오기
 		public MemberVO getMember(String memId) {
 			MemberVO member=null;
 			try {			
@@ -134,13 +136,6 @@ public class MemberDAO {
 				sql="{call getMember(?,?) }";
 				cstmt=conn.prepareCall(sql);
 				cstmt.setString(1, memId);
-				/*
-				 * cstmt.registerOutParameter(2, oracle.jdbc.OracleTypes.VARCHAR);
-				 * cstmt.registerOutParameter(3, oracle.jdbc.OracleTypes.VARCHAR);
-				 * cstmt.registerOutParameter(5, oracle.jdbc.OracleTypes.DATE);
-				 * cstmt.registerOutParameter(4, oracle.jdbc.OracleTypes.VARCHAR);
-				 * cstmt.registerOutParameter(6, oracle.jdbc.OracleTypes.VARCHAR);
-				 */
 				cstmt.registerOutParameter(2, OracleTypes.CURSOR);
 				cstmt.executeUpdate();
 				rs=(ResultSet)cstmt.getObject(2);
@@ -166,7 +161,7 @@ public class MemberDAO {
 		}
 	
 	
-	//로그인 페이지 구현
+	// 0914 박진수 로그인 페이지 구현
 		public String LoginMember(String memId,String memPw) {
 			String result="";
 			try {
