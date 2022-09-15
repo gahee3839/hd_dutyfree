@@ -1,19 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file= "../include/header.jsp" %>
+<!-- 0914 박진수 추가  --> 
 <!-- 진수 수정 url로 사이트 들어갈 시 에러 페이지로 이동 -->
 <%
 if(memId==null){
 %>
-<script language='javascript'>
+<script type="text/javascript">
 location.href='../DutyfreeServlet?command=error';
 </script>
 <!--
 location.href='/프로젝트이름/DutyfreeServlet?command=error'; 으로 바꾸고 실행
  -->
+<% }
+String update_success="";
+update_success=(String)request.getAttribute("update_success");
+if(update_success.equals("update_success")){
+%>
+<script type="text/javascript">
+alert("수정이 완료되었습니다");
+</script>
 <%} %>
 <!-- container -->
-		<main id="container" >
 			<script type="text/javascript">
 $(function(){
 	
@@ -99,7 +107,8 @@ $(function(){
                 </a>
             </dl>
             <dl style="height:200px; padding-top:80px; width: 250px;">
-                <a href="/mm/myInfo/inptMbshPwd.do?type=base">
+            <!-- 0914 박진수 추가  --> 
+                <a href="DutyfreeServlet?command=Update_page">
                     <dt style="font-size:20px;">기본정보관리</dt>
                 </a>
             </dl>
@@ -107,31 +116,7 @@ $(function(){
             
         </div>
     </div>
-   <!--  <div class="mymenu">
-        <p class="ti">My Hyundai
-        <ul>
-            <li><a nohref onclick="goUrl('/mm/myOrder/listOrder.do');">주문내역</a></li>
-            <li><a nohref onclick="goUrl('/mm/myOrder/listSpord.do');">스페셜오더/H.Share</a></li>
-            
-            <li id="hPointPay"><a nohref onclick="goHPointPay('');">H.Point Pay 관리</a></li>
-          
-            <li><a nohref onclick="goUrl('/mm/myBnf/listSvmt.do');">적립금내역</a></li>
-            <li><a nohref onclick="goUrl('/mm/myBnf/listCup.do');">쿠폰내역</a></li>
-            <li><a nohref onclick="goUrl('/mm/myBnf/listGfca.do');">예치금/상품권전환금</a></li>
-            <li><a nohref onclick="goUrl('/mm/myOrder/listBrandAlarm.do');">알림 신청 내역</a></li>
-            <li><a nohref onclick="goUrl('/mm/myEvntSpex/listEvntPtcp.do');">나의 이벤트/기획전</a></li>
-            <li><a nohref onclick="goUrl('/mm/myCont/listCnrGoos.do');">관심 상품/브랜드</a></li>
-            <li><a nohref onclick="goUrl('/mm/myCont/listCounQustBbs.do');">문의내역</a></li>
-            <li><a nohref onclick="goUrl('/mm/grvws/mainGrvws.do');">상품평</a></li>
-            <li><a nohref onclick="goUrl('/mm/myInfo/inptMbshPwd.do?type=base');">기본정보관리</a></li>
-            <li><a nohref onclick="goUrl('/mm/myInfo/inptMbshPwd.do?type=pspt');">여권정보관리</a></li>
-            <li><a nohref onclick="goUrl('/mm/myInfo/listMbshDpatInfo.do');">출국정보관리</a></li>
-            <li><a nohref onclick="liMyChgPwd();">비밀번호변경</a></li>
-            <li><a nohref onclick="goUrl('/mm/myInfo/snsConn.do');">SNS 간편로그인 설정</a></li>
-        </ul>
-        <button class="btn_view">메뉴더보기</button>
-        </p>
-    </div> -->
+ 
 </article> 
 <article id="content">
 	<section class="myhd_asis">
@@ -139,7 +124,7 @@ $(function(){
 			<h3 class="h3_type line">
 				기본정보관리
 			</h3>
-			<form id="update_member" name="update_member" method="post" action="Dutyfree/command=update">
+			<form id="update_member" name="update_member" method="post" action="DutyfreeServlet/command=Update">
 				<table class="tb_write01 vm">
 					<caption>기본정보관리</caption>
 					<colgroup>
@@ -149,11 +134,27 @@ $(function(){
 					<tbody>
 					<tr>
 						<th scope="row" class="bt_no">아이디</th>
-						<td class="bt_no">${member.memId}</td>
+						<td class="bt_no">
+						${member.memId }
+						<input type="hidden" name="memId" value="${member.memId}">
+						</td>
+					</tr>
+					<tr>
+						<th scope="row" class="bt_no">기존 비밀번호</th>
+						<td class="bt_no">
+						${member.memPw }
+						</td>
+						<th scope="row" class="bt_no">새 비밀번호</th>
+						<td class="bt_no">
+						<input type="password" name="new_memPw" value="${member.memPw }">
+						<p class="t_info">새 비밀번호를 냅둘 시 기존 비밀번호로 저장이 됩니다.</p>
+						</td>
 					</tr>
 					<tr>
 						<th scope="row" class="bt_no">성명</th>
-						<td class="td_data">${member.memName}
+						<td class="td_data" name="memName">
+						${member.memName }
+						<input type="hidden" name="memId" value="${member.memName}">
 						<p class="t_info">한글 성명은 고객센터(1811-6688)통해서 수정이 가능합니다.</p>
 						</td>
 					</tr>
@@ -161,6 +162,7 @@ $(function(){
 						<th scope="row" class="bt_no">성별</th>
 						<td class="td_data"> 
 						${member.memGender }
+						<input type="hidden" name="memId" value="${member.memGender}">
 						<p class="t_info">성별은 고객센터(1811-6688)통해서 수정이 가능합니다.</p>
 						</td>
 					</tr> 
@@ -168,12 +170,19 @@ $(function(){
 						<th scope="row">생년월일</th>
 						<td class="td_data"> 
 						${member.memBirth }
+						<input type="hidden" name="memId" value="${member.memBirth}">
 						</td>
 					</tr> 
 					<tr>
 						<th scope="row">휴대폰번호</th>
 						<td class="td_data"> 
-						<input type="text" value="${member.memPhone }">
+						<input type="text" name="memPhone" value="${member.memPhone }">
+						</td>
+					</tr>  
+					<tr>
+						<th scope="row">여권번호</th>
+						<td class="td_data"> 
+						<input type="text" name="memPassport" value="${member.memPassport }">
 						</td>
 					</tr>  
 					<tr>
@@ -187,8 +196,12 @@ $(function(){
 					</tr>
 					</tbody>
 				</table>
+				<div class="btn_area mt40">
+				<a href=""  class="btnxl_type2 type2" id="btnConfirm">취소</a>
+				<a href=""  class="btnxl_type2 type2 bg_black" id="btnConfirm">확인</a>
+				</div>
 				</form>
-				<form id="frmMbshPsptMnge" name="frmMbshPsptMnge" method="post" action="">
+				<!-- <form id="frmMbshPsptMnge" name="frmMbshPsptMnge" method="post" action="">
 				<div class="cont_stit por">
 				<h3>여권 정보</h3>
 				</div>
@@ -251,7 +264,7 @@ $(function(){
 				<a href=""  class="btnxl_type2 type2" id="btnConfirm">취소</a>
 				<a href=""  class="btnxl_type2 type2 bg_black" id="btnConfirm">확인</a>
 				</div>
-			</form>
+			</form> -->
 				
 		</div>
 	</section>

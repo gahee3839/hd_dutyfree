@@ -19,11 +19,11 @@ public class Update_page implements Action {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		MemberDAO dao=MemberDAO.getInstance();
 		HttpSession session=request.getSession();
-		MemberVO member=(MemberVO)session.getAttribute("member");
-		member=dao.getMember(member.getMemId());
-		session.setAttribute("member", member);
+		String memId=(String)session.getAttribute("memId");
+		MemberVO member=dao.getMember(memId);
+		request.setAttribute("member", member);
 		String url="/user/MyHD.jsp";
-		request.getRequestDispatcher(url).forward(request,response);
+		request.getRequestDispatcher(url).forward(request, response);
 	}
 
 }
