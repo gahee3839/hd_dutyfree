@@ -1,10 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <%-- 2022.09.15 구영모 메인 페이지 수정--%>
 <!-- header -->
-<%@ include file="../include/header.jsp"%>
+<%@ include file="/include/header.jsp"%>
 <html>
 <meta charset="UTF-8">
 <title>현대백화점인터넷면세점</title>
@@ -270,110 +268,11 @@
 					</div>
 				</section>
 			</section>
-
+			
 		</article>
-		<!-- 신규 입점 브랜드 -->
-		<section class="hashtag hStyleGroup">
-			<div class="title">
-				<h3>
-					<a class="hash-link-desc type-accordion">신규입점브랜드</a>
-				</h3>
-				<img src="images/mainbrand.jpg" alt="신규입점브랜드" class="noImg lazy" /> <a href="javascript:" onclick="openTab('H352');" class="btn">OPEN</a>
-			</div>
-			<div class="tab-action">
-				<ul class="tab_round">
-					<li class="tab_item "><a href="#H3522506_002" onclick="changeHashtagTab('H3522506_002', '3522506')"> 브랜드</a></li>
-				</ul>
-				<div class="pro_banner">
-					<div class="swiper_box module_circle product_module">
-						<section class="brandbanner">
-							<div class="box">
-								<div class="brandbanner-swiper">
-									<div class="swiper-wrapper">
-										<div class="swiper-slide">
-											<a href="https://www.hddfs.com/event/op/spex/dtlSpex.do?spexId=0002725" style="display: inline-block; vertical-align: middle;" target="_self"> <span class="img"> <img data-srcset="https://cdn.hddfs.com/files/dm/20220831/98c2f3a8_202208310831283690.jpg?RS=160X160" data-src="https://cdn.hddfs.com/files/dm/20220831/98c2f3a8_202208310831283690.jpg?RS=160X160" src="https://cdn.hddfs.com/front/images/KO/common/noimg.png?RS=160X160" alt="" class="swiper-lazy">
-											</span>
-												<p>1</p>
-											</a>
-										</div>
-										<div class="swiper-slide">
-											<a href="https://www.hddfs.com/event/op/spex/dtlSpex.do?spexId=0002725" style="display: inline-block; vertical-align: middle;" target="_self"> <span class="img"> <img data-srcset="https://cdn.hddfs.com/files/dm/20220831/98c2f3a8_202208310831283690.jpg?RS=160X160" data-src="https://cdn.hddfs.com/files/dm/20220831/98c2f3a8_202208310831283690.jpg?RS=160X160" src="https://cdn.hddfs.com/front/images/KO/common/noimg.png?RS=160X160" alt="" class="swiper-lazy">
-											</span>
-												<p>2</p>
-											</a>
-										</div>
-										<div class="swiper-slide">
-											<a href="https://www.hddfs.com/event/op/spex/dtlSpex.do?spexId=0002725" style="display: inline-block; vertical-align: middle;" target="_self"> <span class="img"> <img data-srcset="https://cdn.hddfs.com/files/dm/20220831/98c2f3a8_202208310831283690.jpg?RS=160X160" data-src="https://cdn.hddfs.com/files/dm/20220831/98c2f3a8_202208310831283690.jpg?RS=160X160" src="https://cdn.hddfs.com/front/images/KO/common/noimg.png?RS=160X160" alt="" class="swiper-lazy">
-											</span>
-												<p>3</p>
-											</a>
-										</div>
-										<div class="swiper-slide">
-											<a href="https://www.hddfs.com/event/op/spex/dtlSpex.do?spexId=0002725" style="display: inline-block; vertical-align: middle;" target="_self"> <span class="img"> <img data-srcset="https://cdn.hddfs.com/files/dm/20220831/98c2f3a8_202208310831283690.jpg?RS=160X160" data-src="https://cdn.hddfs.com/files/dm/20220831/98c2f3a8_202208310831283690.jpg?RS=160X160" src="https://cdn.hddfs.com/front/images/KO/common/noimg.png?RS=160X160" alt="" class="swiper-lazy">
-											</span>
-												<p>4</p>
-											</a>
-										</div>
-										<div class="swiper-slide">
-											<a href="https://www.hddfs.com/event/op/spex/dtlSpex.do?spexId=0002725" style="display: inline-block; vertical-align: middle;" target="_self"> <span class="img"> <img data-srcset="https://cdn.hddfs.com/files/dm/20220831/98c2f3a8_202208310831283690.jpg?RS=160X160" data-src="https://cdn.hddfs.com/files/dm/20220831/98c2f3a8_202208310831283690.jpg?RS=160X160" src="https://cdn.hddfs.com/front/images/KO/common/noimg.png?RS=160X160" alt="" class="swiper-lazy">
-											</span>
-												<p>5</p>
-											</a>
-										</div>
-										<div class="swiper-slide">
-											<a href="https://www.hddfs.com/event/op/spex/dtlSpex.do?spexId=0002725" style="display: inline-block; vertical-align: middle;" target="_self"> <span class="img"> <img data-srcset="https://cdn.hddfs.com/files/dm/20220831/98c2f3a8_202208310831283690.jpg?RS=160X160" data-src="https://cdn.hddfs.com/files/dm/20220831/98c2f3a8_202208310831283690.jpg?RS=160X160" src="https://cdn.hddfs.com/front/images/KO/common/noimg.png?RS=160X160" alt="" class="swiper-lazy">
-											</span>
-												<p>6</p>
-											</a>
-										</div>
-										<div class="swiper-slide">
-											<a href="https://www.hddfs.com/event/op/spex/dtlSpex.do?spexId=0002725" style="display: inline-block; vertical-align: middle;" target="_self"> <span class="img"> <img data-srcset="https://cdn.hddfs.com/files/dm/20220831/98c2f3a8_202208310831283690.jpg?RS=160X160" data-src="https://cdn.hddfs.com/files/dm/20220831/98c2f3a8_202208310831283690.jpg?RS=160X160" src="https://cdn.hddfs.com/front/images/KO/common/noimg.png?RS=160X160" alt="" class="swiper-lazy">
-											</span>
-												<p>7</p>
-											</a>
-										</div>
-										<div class="swiper-slide">
-											<a href="https://www.hddfs.com/event/op/spex/dtlSpex.do?spexId=0002725" style="display: inline-block; vertical-align: middle;" target="_self"> <span class="img"> <img data-srcset="https://cdn.hddfs.com/files/dm/20220831/98c2f3a8_202208310831283690.jpg?RS=160X160" data-src="https://cdn.hddfs.com/files/dm/20220831/98c2f3a8_202208310831283690.jpg?RS=160X160" src="https://cdn.hddfs.com/front/images/KO/common/noimg.png?RS=160X160" alt="" class="swiper-lazy">
-											</span>
-												<p>8</p>
-											</a>
-										</div>
-									</div>
-								</div>
-							</div>
-<style>
-.hashtag .swiper-prev {
-	width: 40px;
-	height: 50px;
-	min-height: auto;
-	position: absolute;
-	top: 126px;
-	left: 0;
-	cursor: pointer;
-	background: url(../../images/KO/common/icon_controller.png) -36px -45px
-		no-repeat;
-}
 
-.hashtag .swiper-next {
-	width: 40px;
-	height: 50px;
-	min-height: auto;
-	position: absolute;
-	top: 126px;
-	right: 0;
-	cursor: pointer;
-	background: url(../../images/KO/common/icon_controller.png) -78px -45px
-		no-repeat;
-}
-</style>
-							<div class="swiper-next"></div>
-							<div class="swiper-prev"></div>
-						</section>
-					</div>
-				</div>
-		</section>
 	</main>
 </div>
 <!-- footer -->
-<%@ include file="../include/footer.jsp"%>
+<%@ include file="/include/footer.jsp"%>
 </html>
