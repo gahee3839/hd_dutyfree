@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
-<%-- 2022.09.15 구영모 메인 페이지 수정--%>
+<%-- 2022.09.15 구영모 메인 페이지 수정1--%>
 <!-- header -->
 <%@ include file="../include/header.jsp"%>
 <html>
