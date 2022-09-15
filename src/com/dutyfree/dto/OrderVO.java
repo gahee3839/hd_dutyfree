@@ -4,6 +4,8 @@ package com.dutyfree.dto;
 import java.sql.Timestamp;
 
 public class OrderVO {
+
+
 	private int oNo;
 	private int odNo;
 	private int mNo;
@@ -15,6 +17,7 @@ public class OrderVO {
 	private int odAmount;
 	private Timestamp oDate;
 	private String oShipping;
+
 
 	public int getoNo() {
 		return oNo;
@@ -106,16 +109,9 @@ public class OrderVO {
 
 	@Override
 	public String toString() {
-		return "OrderVO [oNo=" + oNo + ", odNo=" + odNo + ", mNo=" + mNo + ", pNo=" + pNo + ", pName=" + pName
+		return "OrderVO [ oNo=" + oNo + ", odNo=" + odNo + ", mNo=" + mNo + ", pNo=" + pNo + ", pName=" + pName
 				+ ", pPrice=" + pPrice + ", pDiscount=" + pDiscount + ", odAmount=" + odAmount + ", oDate=" + oDate
 				+ ", oShipping=" + oShipping + "]";
 	}
-<<<<<<< HEAD
 
 }
-=======
-	
-	
-
-}
->>>>>>> branch 'master' of https://github.com/gahee3839/hd_dutyfree.git
