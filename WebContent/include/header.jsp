@@ -590,7 +590,7 @@ String memId=(String)session.getAttribute("memId");
 
 	    		<ul>
 	            <li class="item_01">
-	                <a href="장바구니 링크"><strong>장바<br>구니</strong><em id="rwingCartCnt" style="display: none"></em></a>
+	                <a href="DutyfreeServlet?command=cart_list"><strong>장바<br>구니</strong><em id="rwingCartCnt" style="display: none"></em></a>
 	            </li>
 	            <li class="item_02">
 	                <a href="DutyfreeServlet?command=order_detail"><strong>주문<br>조회</strong></a>

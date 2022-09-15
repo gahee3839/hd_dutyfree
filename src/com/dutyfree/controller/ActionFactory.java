@@ -72,6 +72,23 @@ public class ActionFactory {
 			action=new delete_form();
 		}
 		
+		// 0915 김나형 추가
+//		if(command.equals("contract")) {
+//			action = new ContractAction();
+//		} else if(command.equals("join_form")) {
+//			action = new JoinFormAction();
+//		}else if(command.equals("join")) {
+//			action = new JoinAction();
+//		}else
+		if (command.equals("index")) {
+			 action = new IndexAction();
+		}else if (command.equals("cart_insert")) {
+			 action = new CartInsertAction();
+		 }else if (command.equals("cart_list")) {
+			 action = new CartListAction();
+		 }  else if (command.equals("cart_delete")) {
+			 action = new CartDeleteAction();
+		 } 
 		return action;
 		
 		
